@@ -883,11 +883,6 @@ footer strong {
                     <strong>Red</strong>
                 </div>
 
-                <div>
-                    SCALE
-                    <strong>1:64</strong>
-                </div>
-
             </div>
 
         </div>
@@ -1040,6 +1035,96 @@ footer strong {
 
 </footer>
 
+<script>
+const cars = [
+    {
+        name: "LA TROCA",
+        year: "",
+        brand: "HOT WHEELS",
+        series: "",
+        color: "GREEN"
+    },
+    {
+        name: "CHEVROLET C10",
+        year: "",
+        brand: "MAJORETTE",
+        series: "",
+        color: "BLACK"
+    },
+    {
+        name: "FORD F-150 LIGHTNING SUPERTRUCK",
+        year: "",
+        brand: "HOT WHEELS",
+        series: "",
+        color: "DARK BLUE"
+    },
+    {
+        name: "AUSTIN MINI COOPER S",
+        year: "",
+        brand: "HOT WHEELS",
+        series: "",
+        color: "RED"
+    },
+    {
+        name: "PORSCHE 911 GT3 RS",
+        year: "",
+        brand: "HOT WHEELS",
+        series: "F&F PACK",
+        color: ""
+    },
+    {
+        name: "MERCEDES AMG GT63",
+        year: "",
+        brand: "MAJORETTE",
+        series: "AMG SET",
+        color: "RED"
+    },
+    {
+        name: "LAMBORGHINI COUNTACH LPI 800-4",
+        year: "",
+        brand: "MAJORETTE",
+        series: "LAMBO SET",
+        color: ""
+    },
+    {
+        name: "NISSAN SKYLINE GT-R (BNR 34)",
+        year: "",
+        brand: "HOT WHEELS",
+        series: "",
+        color: "BLUE"
+    }
+];
 
+let currentCar = 0;
+
+const featuredCar = document.querySelector(".featured-car");
+const carTitle = document.querySelector(".car-title");
+const yearElement = document.querySelector(".year");
+const details = document.querySelectorAll(".car-details > div");
+
+function showCar(index) {
+    const car = cars[index];
+
+    featuredCar.textContent = "🚗";
+    carTitle.textContent = car.name;
+    yearElement.textContent = car.year;
+
+    details[0].querySelector("strong").textContent = car.brand;
+    details[1].querySelector("strong").textContent = car.series || "—";
+    details[2].querySelector("strong").textContent = car.color || "—";
+}
+
+document.querySelector(".arrow.left").addEventListener("click", () => {
+    currentCar = (currentCar - 1 + cars.length) % cars.length;
+    showCar(currentCar);
+});
+
+document.querySelector(".arrow.right").addEventListener("click", () => {
+    currentCar = (currentCar + 1) % cars.length;
+    showCar(currentCar);
+});
+
+showCar(currentCar);
+</script>
 </body>
 </html>
