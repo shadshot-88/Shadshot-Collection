@@ -7,451 +7,249 @@
 <title>SHADSHOT — My Die-Cast Cars Collection</title>
 
 <style>
-
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --red: #ff2b2b;
-    --dark-red: #8f1111;
-    --black: #050505;
-    --panel: #101010;
-    --panel-light: #171717;
-    --border: #292929;
-    --text: #f4f4f4;
-    --muted: #888;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     background:
-        radial-gradient(circle at 50% 45%, #191919 0%, #070707 55%, #020202 100%);
-    color: var(--text);
+        radial-gradient(circle at 50% 35%, #292929 0%, #111 45%, #050505 100%);
+    color: white;
     min-height: 100vh;
-    overflow-x: hidden;
 }
 
 /* =========================
-   NAVIGATION
+   HEADER
 ========================= */
 
-nav {
-    height: 82px;
-    border-bottom: 1px solid #242424;
+header {
+    height: 90px;
     display: flex;
     align-items: center;
-    padding: 0 35px;
-    background: rgba(0,0,0,0.85);
-    backdrop-filter: blur(15px);
-    position: relative;
-    z-index: 20;
+    justify-content: space-between;
+    padding: 0 5%;
+    border-bottom: 1px solid #333;
+    background: rgba(5,5,5,0.85);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 14px;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    min-width: 300px;
-}
-
-.logo-mark {
-    width: 45px;
-    height: 45px;
-    border: 2px solid var(--red);
-    border-radius: 12px;
+    width: 50px;
+    height: 50px;
+    border: 3px solid #ff3b22;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--red);
-    font-size: 23px;
-    font-weight: 800;
-    box-shadow: 0 0 15px rgba(255,40,40,0.3);
+    color: #ff3b22;
+    font-size: 25px;
+    font-weight: bold;
+    box-shadow: 0 0 15px rgba(255,59,34,0.4);
 }
 
 .logo-text h1 {
-    font-size: 24px;
+    font-size: 21px;
     letter-spacing: 3px;
 }
 
 .logo-text p {
-    color: var(--red);
-    font-size: 11px;
+    color: #ff4b35;
+    font-size: 12px;
     letter-spacing: 1px;
-    margin-top: 2px;
+    margin-top: 4px;
 }
 
-.nav-links {
+.header-icons {
     display: flex;
-    gap: 34px;
-    align-items: center;
-    height: 100%;
-}
-
-.nav-links a {
-    color: #ccc;
-    text-decoration: none;
-    font-size: 14px;
-    letter-spacing: .5px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-    color: white;
-}
-
-.nav-links a.active::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--red);
-    box-shadow: 0 0 10px var(--red);
-}
-
-.nav-icons {
-    margin-left: auto;
-    display: flex;
-    gap: 20px;
-    font-size: 22px;
-    color: #aaa;
+    gap: 18px;
+    font-size: 25px;
+    color: #ddd;
 }
 
 /* =========================
-   STAT CARDS
+   STATS
 ========================= */
 
 .stats {
-    display: flex;
-    justify-content: center;
+    width: 90%;
+    max-width: 1400px;
+    margin: 30px auto 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 18px;
-    padding: 20px;
-    position: relative;
-    z-index: 10;
 }
 
 .stat {
-    width: 215px;
-    padding: 17px 20px;
-    background: rgba(13,13,13,.92);
-    border: 1px solid #292929;
-    border-radius: 13px;
+    border: 1px solid #555;
+    border-radius: 18px;
+    min-height: 105px;
     display: flex;
     align-items: center;
-    gap: 15px;
-    box-shadow: 0 8px 30px rgba(0,0,0,.4);
+    gap: 18px;
+    padding: 20px;
+    background: rgba(20,20,20,0.7);
 }
 
 .stat-icon {
-    width: 46px;
-    height: 46px;
-    border-radius: 10px;
-    background: #190b0b;
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--red);
-    font-size: 22px;
-}
-
-.stat:nth-child(2) .stat-icon {
-    color: #4f9cff;
-    background: #091321;
-}
-
-.stat:nth-child(3) .stat-icon {
-    color: #ffc52f;
-    background: #191406;
-}
-
-.stat:nth-child(4) .stat-icon {
-    color: #ff4545;
-    background: #190909;
+    font-size: 25px;
+    background: #292929;
 }
 
 .stat-number {
-    font-size: 29px;
-    font-weight: 600;
+    font-size: 30px;
+    font-weight: bold;
 }
 
 .stat-label {
-    color: #999;
+    color: #ccc;
     font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: .5px;
+    margin-top: 4px;
+    letter-spacing: 1px;
 }
 
 /* =========================
-   SHOWROOM
+   COLLECTION DISPLAY
 ========================= */
 
-.showroom {
+.collection-panel {
+    width: 90%;
+    max-width: 1400px;
+    margin: 25px auto;
+    min-height: 650px;
+    border: 1px solid #444;
+    border-radius: 25px;
     position: relative;
-    min-height: 610px;
-    margin: 0 25px;
-    border-radius: 20px;
     overflow: hidden;
-
     background:
         radial-gradient(
             ellipse at center bottom,
-            rgba(255,35,35,.18),
-            transparent 42%
+            rgba(255,60,35,0.18),
+            transparent 45%
         ),
-        linear-gradient(
-            180deg,
-            #111 0%,
-            #080808 65%,
-            #050505 100%
-        );
-
-    border: 1px solid #262626;
+        linear-gradient(#191919, #0b0b0b);
 }
 
-/* ceiling lights */
+/* glowing line */
 
-.showroom::before {
-    content: "";
+.glow-line {
     position: absolute;
-    left: 5%;
-    right: 5%;
-    top: 55px;
+    top: 60px;
+    left: 8%;
+    width: 84%;
     height: 2px;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        #555,
-        var(--red),
-        #555,
-        transparent
-    );
-
+    background: #ff3b22;
     box-shadow:
-        0 0 15px rgba(255,30,30,.8),
-        0 0 40px rgba(255,30,30,.3);
-}
-
-/* floor */
-
-.floor {
-    position: absolute;
-    bottom: -160px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 1000px;
-    height: 400px;
-    border-radius: 50%;
-    background:
-        radial-gradient(
-            ellipse,
-            #242424 0%,
-            #0c0c0c 48%,
-            #050505 70%
-        );
-    border-top: 1px solid #3a3a3a;
+        0 0 10px #ff3b22,
+        0 0 25px rgba(255,59,34,0.7);
 }
 
 /* =========================
-   DISPLAY CABINETS
+   SHELVES
 ========================= */
 
-.cabinets {
-    position: absolute;
-    top: 80px;
-    left: 3%;
-    right: 3%;
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
+.shelves {
+    position: relative;
+    padding: 90px 35px 0;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 14px;
+    height: 370px;
 }
 
-.cabinet {
-    width: 12%;
-    height: 330px;
-
+.shelf {
+    height: 275px;
+    border: 1px solid #444;
+    border-radius: 14px;
     background:
         linear-gradient(
             90deg,
-            rgba(255,255,255,.04),
-            transparent 20%,
-            transparent 80%,
-            rgba(255,255,255,.04)
-        ),
-        #0b0b0b;
-
-    border: 1px solid #343434;
-    border-radius: 10px;
-
-    padding: 10px;
-
-    box-shadow:
-        inset 0 0 30px rgba(255,255,255,.02),
-        0 0 15px rgba(0,0,0,.8);
+            rgba(255,255,255,0.02),
+            rgba(255,255,255,0.06),
+            rgba(255,255,255,0.02)
+        );
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    overflow: hidden;
 }
 
-.cabinet::before {
-    content: "";
-    display: block;
-    height: 2px;
-    background: var(--red);
-    box-shadow: 0 0 10px var(--red);
-    margin-bottom: 10px;
-}
-
-.mini-car {
-    height: 68px;
-    margin-bottom: 8px;
-
+.shelf-car {
     display: flex;
     align-items: center;
     justify-content: center;
+    border-bottom: 1px solid #222;
+    font-size: 30px;
+    cursor: pointer;
+    transition: 0.2s;
+}
 
-    background:
-        linear-gradient(
-            180deg,
-            #191919,
-            #0b0b0b
-        );
-
-    border-bottom: 1px solid #292929;
-    border-radius: 5px;
-
-    font-size: 28px;
+.shelf-car:hover {
+    background: rgba(255,59,34,0.12);
+    transform: scale(1.04);
 }
 
 /* =========================
-   CENTRAL PLATFORM
+   PLATFORM
 ========================= */
 
 .platform-area {
     position: absolute;
+    bottom: 190px;
     left: 50%;
-    bottom: 30px;
     transform: translateX(-50%);
-    width: 610px;
-    height: 275px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+    width: 90%;
+    height: 190px;
 }
 
 .platform {
     position: absolute;
-    bottom: 0;
-    width: 570px;
-    height: 125px;
-
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75%;
+    height: 40px;
     border-radius: 50%;
-
-    background:
-        radial-gradient(
-            ellipse,
-            #303030 0%,
-            #161616 52%,
-            #080808 75%
-        );
-
-    border: 2px solid #444;
-
+    border: 3px solid #ff3b22;
     box-shadow:
-        0 0 0 8px #090909,
-        0 0 0 10px #292929,
-        0 0 0 13px #090909,
-        0 0 35px rgba(255,30,30,.35);
+        0 0 10px #ff3b22,
+        0 0 30px rgba(255,59,34,0.5);
+    background: #151515;
 }
 
-.platform::after {
+.platform::before {
     content: "";
     position: absolute;
-    inset: 10px;
-    border-radius: 50%;
-    border: 3px solid var(--red);
-    box-shadow:
-        0 0 15px var(--red),
-        inset 0 0 15px rgba(255,30,30,.4);
+    left: 8%;
+    right: 8%;
+    top: 8px;
+    height: 3px;
+    background: #ff3b22;
+    box-shadow: 0 0 12px #ff3b22;
 }
 
 .featured-car {
-    position: relative;
-    z-index: 5;
-    margin-bottom: 105px;
-    font-size: 115px;
-
-    filter:
-        drop-shadow(0 20px 15px rgba(0,0,0,.8))
-        drop-shadow(0 0 15px rgba(255,50,50,.25));
-
-    animation: floatCar 3s ease-in-out infinite;
-}
-
-@keyframes floatCar {
-    0%,100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-8px);
-    }
-}
-
-/* =========================
-   CAR INFORMATION
-========================= */
-
-.car-info {
     position: absolute;
-    z-index: 8;
-    bottom: -3px;
     left: 50%;
+    bottom: 45px;
     transform: translateX(-50%);
-    width: 450px;
-
-    padding: 15px 22px;
-
-    background: rgba(8,8,8,.96);
-    border: 1px solid #303030;
-    border-radius: 12px;
-
-    box-shadow: 0 10px 30px rgba(0,0,0,.7);
-}
-
-.car-title-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.car-title {
-    font-size: 20px;
-    letter-spacing: .5px;
-}
-
-.year {
-    color: var(--red);
-    font-weight: 600;
-}
-
-.car-details {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 13px;
-    color: #aaa;
-    font-size: 12px;
-}
-
-.car-details strong {
-    display: block;
-    color: white;
-    margin-top: 4px;
-    font-size: 13px;
+    font-size: 80px;
+    filter:
+        drop-shadow(0 0 8px #ff3b22)
+        drop-shadow(0 0 20px rgba(255,59,34,0.5));
+    transition: 0.3s;
 }
 
 /* =========================
@@ -460,144 +258,113 @@ nav {
 
 .arrow {
     position: absolute;
-    z-index: 10;
-    bottom: 95px;
-
-    width: 54px;
-    height: 54px;
-
+    bottom: 0;
+    width: 58px;
+    height: 58px;
     border-radius: 50%;
-    border: 1px solid #431515;
-
-    background: rgba(25,5,5,.9);
-    color: var(--red);
-
+    border: 1px solid #ff3b22;
+    background: rgba(30,10,8,0.8);
+    color: #ff3b22;
     font-size: 30px;
-
     cursor: pointer;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    transition: .2s;
+    z-index: 5;
 }
 
 .arrow:hover {
-    background: var(--red);
+    background: #ff3b22;
     color: white;
-    box-shadow: 0 0 25px rgba(255,30,30,.5);
+    box-shadow: 0 0 20px #ff3b22;
 }
 
 .arrow.left {
-    left: 25px;
+    left: 5%;
 }
 
 .arrow.right {
-    right: 25px;
+    right: 5%;
 }
 
 /* =========================
-   LOWER CONTENT
+   CAR INFO
 ========================= */
 
-.lower-content {
-    display: grid;
-    grid-template-columns: 260px 1fr 280px;
-    gap: 18px;
-
-    padding: 18px 25px 35px;
+.car-info {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    max-width: 850px;
+    border: 1px solid #555;
+    border-radius: 15px;
+    padding: 18px 25px;
+    background: rgba(10,10,10,0.95);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.7);
+    z-index: 4;
 }
 
-/* panels */
-
-.panel {
-    background: #0d0d0d;
-    border: 1px solid #282828;
-    border-radius: 12px;
-    padding: 18px;
-}
-
-.panel-title {
-    font-size: 14px;
-    letter-spacing: .5px;
-    margin-bottom: 15px;
+.car-title-row {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
 }
 
-.panel-title span {
-    color: var(--red);
-    font-size: 12px;
+.car-title {
+    font-size: 22px;
+    font-weight: bold;
 }
 
-/* explore */
+.car-number {
+    color: #ff4b35;
+    font-weight: bold;
+}
+
+.car-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.car-details div {
+    color: #aaa;
+    font-size: 11px;
+}
+
+.car-details strong {
+    display: block;
+    color: white;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* =========================
+   EXPLORE
+========================= */
+
+.explore {
+    width: 90%;
+    max-width: 1400px;
+    margin: 25px auto;
+}
+
+.explore h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
 
 .explore-item {
-    padding: 13px 4px;
-    border-bottom: 1px solid #252525;
-    color: #bbb;
-    cursor: pointer;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 18px 12px;
+    border-bottom: 1px solid #333;
+    color: white;
+    cursor: pointer;
 }
 
 .explore-item:hover {
-    color: white;
-}
-
-.explore-item span:last-child {
-    color: #777;
-}
-
-/* recently added */
-
-.recent-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-}
-
-.recent-card {
-    background: #151515;
-    border: 1px solid #292929;
-    border-radius: 8px;
-    padding: 8px;
-}
-
-.recent-image {
-    height: 85px;
-    border-radius: 5px;
-    background: #090909;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 38px;
-}
-
-.recent-card h3 {
-    font-size: 12px;
-    margin-top: 8px;
-}
-
-.recent-card p {
-    color: #777;
-    font-size: 10px;
-    margin-top: 4px;
-}
-
-/* top brands */
-
-.brand {
-    padding: 12px 2px;
-    border-bottom: 1px solid #252525;
-    display: flex;
-    justify-content: space-between;
-    color: #bbb;
-}
-
-.brand span:last-child {
-    color: white;
+    color: #ff4b35;
 }
 
 /* =========================
@@ -605,81 +372,104 @@ nav {
 ========================= */
 
 footer {
-    border-top: 1px solid #222;
     text-align: center;
-    padding: 25px;
-    color: #666;
-    font-size: 13px;
+    padding: 50px 20px;
+    color: #777;
 }
 
 footer strong {
-    color: var(--red);
+    color: #ff4b35;
 }
 
 /* =========================
    MOBILE
 ========================= */
 
-@media(max-width: 900px) {
+@media (max-width: 800px) {
 
-    .nav-links {
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .shelves {
+        grid-template-columns: repeat(4, 1fr);
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .shelf:nth-child(n+5) {
         display: none;
     }
 
-    .logo {
-        min-width: auto;
-    }
-
-    .stats {
-        overflow-x: auto;
-        justify-content: flex-start;
-    }
-
-    .stat {
-        min-width: 180px;
-    }
-
-    .cabinets {
-        opacity: .55;
-    }
-
-    .platform-area {
-        width: 100%;
-    }
-
-    .platform {
+    .car-info {
         width: 90%;
     }
 
-    .car-info {
-        width: 75%;
+    .car-details {
+        grid-template-columns: repeat(3, 1fr);
     }
 
-    .lower-content {
-        grid-template-columns: 1fr;
-    }
-
-    .recent-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .featured-car {
+        font-size: 65px;
     }
 }
 
+@media (max-width: 500px) {
+
+    header {
+        padding: 0 20px;
+    }
+
+    .stats {
+        width: 94%;
+        gap: 8px;
+    }
+
+    .stat {
+        padding: 12px;
+        min-height: 85px;
+    }
+
+    .stat-number {
+        font-size: 23px;
+    }
+
+    .stat-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .collection-panel {
+        width: 94%;
+    }
+
+    .shelves {
+        height: 330px;
+    }
+
+    .car-title {
+        font-size: 17px;
+    }
+
+    .car-details strong {
+        font-size: 12px;
+    }
+}
 </style>
 </head>
 
 <body>
 
 <!-- =========================
-     NAVIGATION
+     HEADER
 ========================= -->
 
-<nav>
+<header>
 
-    <div class="logo">
+    <div class="logo-area">
 
-        <div class="logo-mark">
-            S
-        </div>
+        <div class="logo">S</div>
 
         <div class="logo-text">
             <h1>SHADSHOT</h1>
@@ -688,201 +478,120 @@ footer strong {
 
     </div>
 
-    <div class="nav-links">
-
-        <a href="#" class="active">HOME</a>
-        <a href="#">COLLECTION</a>
-        <a href="#">BRANDS</a>
-        <a href="#">COLORS</a>
-        <a href="#">SERIES</a>
-        <a href="#">YEARS</a>
-        <a href="#">MAKES</a>
-        <a href="#">ABOUT</a>
-
+    <div class="header-icons">
+        <span>⌕</span>
+        <span>☾</span>
     </div>
 
-    <div class="nav-icons">
-        🔍 ☾
-    </div>
-
-</nav>
+</header>
 
 
 <!-- =========================
-     COLLECTION STATS
+     STATS
 ========================= -->
 
 <section class="stats">
 
     <div class="stat">
-
-        <div class="stat-icon">
-            🚗
-        </div>
-
+        <div class="stat-icon">🚗</div>
         <div>
-            <div class="stat-number">192</div>
-            <div class="stat-label">Total Cars</div>
+            <div class="stat-number" id="totalCars">—</div>
+            <div class="stat-label">TOTAL CARS</div>
         </div>
-
     </div>
 
-
     <div class="stat">
-
-        <div class="stat-icon">
-            🛡️
-        </div>
-
+        <div class="stat-icon">🏁</div>
         <div>
-            <div class="stat-number">—</div>
-            <div class="stat-label">Brands</div>
+            <div class="stat-number" id="totalBrands">—</div>
+            <div class="stat-label">BRANDS</div>
         </div>
-
     </div>
 
-
     <div class="stat">
-
-        <div class="stat-icon">
-            🎨
-        </div>
-
+        <div class="stat-icon">🎨</div>
         <div>
-            <div class="stat-number">—</div>
-            <div class="stat-label">Colors</div>
+            <div class="stat-number" id="totalColors">—</div>
+            <div class="stat-label">COLORS</div>
         </div>
-
     </div>
 
-
     <div class="stat">
-
-        <div class="stat-icon">
-            ▱
-        </div>
-
+        <div class="stat-icon">🏎️</div>
         <div>
-            <div class="stat-number">—</div>
-            <div class="stat-label">Series</div>
+            <div class="stat-number" id="uniqueModels">—</div>
+            <div class="stat-label">UNIQUE MODELS</div>
         </div>
-
     </div>
 
 </section>
 
 
 <!-- =========================
-     SHOWROOM
+     MAIN COLLECTION
 ========================= -->
 
-<section class="showroom">
+<section class="collection-panel">
 
-    <div class="cabinets">
+    <div class="glow-line"></div>
 
-        <div class="cabinet">
-            <div class="mini-car">🏎️</div>
-            <div class="mini-car">🚘</div>
-            <div class="mini-car">🏎️</div>
-            <div class="mini-car">🚗</div>
-        </div>
+    <!-- Background shelves -->
 
-        <div class="cabinet">
-            <div class="mini-car">🚗</div>
-            <div class="mini-car">🏎️</div>
-            <div class="mini-car">🚘</div>
-            <div class="mini-car">🏎️</div>
-        </div>
-
-        <div class="cabinet">
-            <div class="mini-car">🚙</div>
-            <div class="mini-car">🏎️</div>
-            <div class="mini-car">🚗</div>
-            <div class="mini-car">🚘</div>
-        </div>
-
-        <div class="cabinet">
-            <div class="mini-car">🏎️</div>
-            <div class="mini-car">🚗</div>
-            <div class="mini-car">🚘</div>
-            <div class="mini-car">🏎️</div>
-        </div>
-
-        <div class="cabinet">
-            <div class="mini-car">🚘</div>
-            <div class="mini-car">🏎️</div>
-            <div class="mini-car">🚗</div>
-            <div class="mini-car">🏎️</div>
-        </div>
-
-        <div class="cabinet">
-            <div class="mini-car">🚗</div>
-            <div class="mini-car">🚘</div>
-            <div class="mini-car">🏎️</div>
-            <div class="mini-car">🚙</div>
-        </div>
-
-        <div class="cabinet">
-            <div class="mini-car">🏎️</div>
-            <div class="mini-car">🚗</div>
-            <div class="mini-car">🚘</div>
-            <div class="mini-car">🏎️</div>
-        </div>
-
-    </div>
+    <div class="shelves" id="shelves"></div>
 
 
-    <div class="floor"></div>
-
-
-    <button class="arrow left">
-        ‹
-    </button>
-
-    <button class="arrow right">
-        ›
-    </button>
-
+    <!-- Featured car -->
 
     <div class="platform-area">
 
-        <div class="featured-car">
-            🏎️
+        <div class="featured-car" id="featuredCar">
+            🚗
         </div>
 
         <div class="platform"></div>
 
-        <div class="car-info">
+        <button class="arrow left" onclick="previousCar()">
+            ‹
+        </button>
 
-            <div class="car-title-row">
+        <button class="arrow right" onclick="nextCar()">
+            ›
+        </button>
 
-                <div class="car-title">
-                    PORSCHE 911 GT3 RS
-                </div>
+    </div>
 
-                <div class="year">
-                    2023
-                </div>
 
+    <!-- Car information -->
+
+    <div class="car-info">
+
+        <div class="car-title-row">
+
+            <div class="car-title" id="carName">
+                Loading collection...
             </div>
 
-            <div class="car-details">
+            <div class="car-number" id="carNumber">
+                —
+            </div>
 
-                <div>
-                    BRAND
-                    <strong>Hot Wheels</strong>
-                </div>
+        </div>
 
-                <div>
-                    SERIES
-                    <strong>Premium</strong>
-                </div>
+        <div class="car-details">
 
-                <div>
-                    COLOR
-                    <strong>Red</strong>
-                </div>
+            <div>
+                BRAND
+                <strong id="carBrand">—</strong>
+            </div>
 
+            <div>
+                COLOR
+                <strong id="carColor">—</strong>
+            </div>
+
+            <div>
+                MODEL
+                <strong id="carModel">—</strong>
             </div>
 
         </div>
@@ -893,238 +602,497 @@ footer strong {
 
 
 <!-- =========================
-     LOWER CONTENT
+     EXPLORE
 ========================= -->
 
-<section class="lower-content">
+<section class="explore">
 
+    <h2>EXPLORE COLLECTION</h2>
 
-    <!-- EXPLORE -->
-
-    <div class="panel">
-
-        <div class="panel-title">
-            EXPLORE COLLECTION
-        </div>
-
-        <div class="explore-item">
-            <span>🛡️ By Brand</span>
-            <span>›</span>
-        </div>
-
-        <div class="explore-item">
-            <span>🎨 By Color</span>
-            <span>›</span>
-        </div>
-
-        <div class="explore-item">
-            <span>▱ By Series</span>
-            <span>›</span>
-        </div>
-
-        <div class="explore-item">
-            <span>📅 By Year</span>
-            <span>›</span>
-        </div>
-
-        <div class="explore-item">
-            <span>🚗 By Make</span>
-            <span>›</span>
-        </div>
-
-        <div class="explore-item">
-            <span>🎲 Random Pick</span>
-            <span>›</span>
-        </div>
-
+    <div class="explore-item" onclick="sortByBrand()">
+        <span>🏁 &nbsp; By Brand</span>
+        <span>›</span>
     </div>
 
-
-    <!-- RECENTLY ADDED -->
-
-    <div class="panel">
-
-        <div class="panel-title">
-
-            <span style="color:white">
-                RECENTLY ADDED
-            </span>
-
-            <span>
-                View All
-            </span>
-
-        </div>
-
-        <div class="recent-grid">
-
-            <div class="recent-card">
-                <div class="recent-image">🏎️</div>
-                <h3>Lamborghini Huracán</h3>
-                <p>Hot Wheels</p>
-            </div>
-
-            <div class="recent-card">
-                <div class="recent-image">🚘</div>
-                <h3>Nissan Skyline GT-R</h3>
-                <p>Hot Wheels</p>
-            </div>
-
-            <div class="recent-card">
-                <div class="recent-image">🏎️</div>
-                <h3>McLaren 720S</h3>
-                <p>Hot Wheels</p>
-            </div>
-
-            <div class="recent-card">
-                <div class="recent-image">🚗</div>
-                <h3>Ford Mustang</h3>
-                <p>Majorette</p>
-            </div>
-
-        </div>
-
+    <div class="explore-item" onclick="sortByColor()">
+        <span>🎨 &nbsp; By Color</span>
+        <span>›</span>
     </div>
 
-
-    <!-- TOP BRANDS -->
-
-    <div class="panel">
-
-        <div class="panel-title">
-
-            <span style="color:white">
-                TOP BRANDS
-            </span>
-
-            <span>
-                View All
-            </span>
-
-        </div>
-
-        <div class="brand">
-            <span>Hot Wheels</span>
-            <span>—</span>
-        </div>
-
-        <div class="brand">
-            <span>Majorette</span>
-            <span>—</span>
-        </div>
-
-        <div class="brand">
-            <span>Matchbox</span>
-            <span>—</span>
-        </div>
-
-        <div class="brand">
-            <span>Other</span>
-            <span>—</span>
-        </div>
-
+    <div class="explore-item" onclick="sortByName()">
+        <span>🚗 &nbsp; By Car Name</span>
+        <span>›</span>
     </div>
 
 </section>
 
 
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
-    “It's not just a collection. It's a passion.”
+    "It's not just a collection, it's a passion."
+
+    <br><br>
+
     — <strong>SHADSHOT</strong>
 
 </footer>
 
+
 <script>
-const cars = [
-    {
-        name: "LA TROCA",
-        year: "",
-        brand: "HOT WHEELS",
-        series: "",
-        color: "GREEN"
-    },
-    {
-        name: "CHEVROLET C10",
-        year: "",
-        brand: "MAJORETTE",
-        series: "",
-        color: "BLACK"
-    },
-    {
-        name: "FORD F-150 LIGHTNING SUPERTRUCK",
-        year: "",
-        brand: "HOT WHEELS",
-        series: "",
-        color: "DARK BLUE"
-    },
-    {
-        name: "AUSTIN MINI COOPER S",
-        year: "",
-        brand: "HOT WHEELS",
-        series: "",
-        color: "RED"
-    },
-    {
-        name: "PORSCHE 911 GT3 RS",
-        year: "",
-        brand: "HOT WHEELS",
-        series: "F&F PACK",
-        color: ""
-    },
-    {
-        name: "MERCEDES AMG GT63",
-        year: "",
-        brand: "MAJORETTE",
-        series: "AMG SET",
-        color: "RED"
-    },
-    {
-        name: "LAMBORGHINI COUNTACH LPI 800-4",
-        year: "",
-        brand: "MAJORETTE",
-        series: "LAMBO SET",
-        color: ""
-    },
-    {
-        name: "NISSAN SKYLINE GT-R (BNR 34)",
-        year: "",
-        brand: "HOT WHEELS",
-        series: "",
-        color: "BLUE"
+
+/* =========================================================
+   COLLECTION DATA
+   Loaded automatically from Collection.csv
+========================================================= */
+
+let cars = [];
+let currentIndex = 0;
+
+
+/* =========================================================
+   CSV PARSER
+   Handles commas inside quoted fields too
+========================================================= */
+
+function parseCSV(text) {
+
+    const rows = [];
+    let row = [];
+    let value = "";
+    let insideQuotes = false;
+
+    for (let i = 0; i < text.length; i++) {
+
+        const char = text[i];
+        const next = text[i + 1];
+
+        if (char === '"' && insideQuotes && next === '"') {
+
+            value += '"';
+            i++;
+
+        } else if (char === '"') {
+
+            insideQuotes = !insideQuotes;
+
+        } else if (char === ',' && !insideQuotes) {
+
+            row.push(value.trim());
+            value = "";
+
+        } else if ((char === '\n' || char === '\r') && !insideQuotes) {
+
+            if (value !== "" || row.length > 0) {
+
+                row.push(value.trim());
+                rows.push(row);
+
+            }
+
+            value = "";
+            row = [];
+
+            if (char === '\r' && next === '\n') {
+                i++;
+            }
+
+        } else {
+
+            value += char;
+
+        }
     }
-];
 
-let currentCar = 0;
+    if (value !== "" || row.length > 0) {
 
-const featuredCar = document.querySelector(".featured-car");
-const carTitle = document.querySelector(".car-title");
-const yearElement = document.querySelector(".year");
-const details = document.querySelectorAll(".car-details > div");
+        row.push(value.trim());
+        rows.push(row);
 
-function showCar(index) {
-    const car = cars[index];
+    }
 
-    featuredCar.textContent = "🚗";
-    carTitle.textContent = car.name;
-    yearElement.textContent = car.year;
-
-    details[0].querySelector("strong").textContent = car.brand;
-    details[1].querySelector("strong").textContent = car.series || "—";
-    details[2].querySelector("strong").textContent = car.color || "—";
+    return rows;
 }
 
-document.querySelector(".arrow.left").addEventListener("click", () => {
-    currentCar = (currentCar - 1 + cars.length) % cars.length;
-    showCar(currentCar);
-});
 
-document.querySelector(".arrow.right").addEventListener("click", () => {
-    currentCar = (currentCar + 1) % cars.length;
-    showCar(currentCar);
-});
+/* =========================================================
+   LOAD CSV
+========================================================= */
 
-showCar(currentCar);
+async function loadCollection() {
+
+    try {
+
+        const response = await fetch("Collection.csv");
+
+        if (!response.ok) {
+            throw new Error("Could not load Collection.csv");
+        }
+
+        const text = await response.text();
+
+        const rows = parseCSV(text);
+
+        if (rows.length < 2) {
+            throw new Error("CSV does not contain enough data.");
+        }
+
+
+        /* Header row */
+
+        const headers = rows[0].map(header =>
+            header.trim().toLowerCase()
+        );
+
+
+        /*
+            Find the columns by their names.
+
+            This means the order of the columns
+            can change and the website can still
+            find the correct information.
+        */
+
+        const carNameIndex =
+            headers.findIndex(h =>
+                h === "car name" ||
+                h === "car" ||
+                h === "name"
+            );
+
+        const brandIndex =
+            headers.findIndex(h =>
+                h === "manufacturer" ||
+                h === "brand"
+            );
+
+        const colorIndex =
+            headers.findIndex(h =>
+                h === "color" ||
+                h === "colour"
+            );
+
+
+        /* Convert CSV rows into car objects */
+
+        cars = rows.slice(1)
+            .filter(row => row.length > 0 && row[carNameIndex])
+            .map(row => {
+
+                return {
+
+                    name: row[carNameIndex] || "Unknown Car",
+
+                    brand: row[brandIndex] || "Unknown",
+
+                    color: row[colorIndex] || "Unknown"
+
+                };
+
+            });
+
+
+        /* Update statistics */
+
+        updateStats();
+
+
+        /* Display first car */
+
+        showCar(0);
+
+
+        /* Create background shelves */
+
+        createShelves();
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        document.getElementById("carName").textContent =
+            "Unable to load collection";
+
+        document.getElementById("carBrand").textContent =
+            "Check Collection.csv";
+
+    }
+
+}
+
+
+/* =========================================================
+   STATISTICS
+========================================================= */
+
+function updateStats() {
+
+    const brands = new Set(
+        cars.map(car => car.brand.toUpperCase())
+    );
+
+    const colors = new Set(
+        cars.map(car => car.color.toUpperCase())
+    );
+
+    const models = new Set(
+        cars.map(car => car.name.toUpperCase())
+    );
+
+
+    document.getElementById("totalCars").textContent =
+        cars.length;
+
+    document.getElementById("totalBrands").textContent =
+        brands.size;
+
+    document.getElementById("totalColors").textContent =
+        colors.size;
+
+    document.getElementById("uniqueModels").textContent =
+        models.size;
+
+}
+
+
+/* =========================================================
+   SHOW SELECTED CAR
+========================================================= */
+
+function showCar(index) {
+
+    if (cars.length === 0) return;
+
+    currentIndex =
+        (index + cars.length) % cars.length;
+
+    const car = cars[currentIndex];
+
+
+    document.getElementById("carName").textContent =
+        car.name;
+
+    document.getElementById("carBrand").textContent =
+        car.brand;
+
+    document.getElementById("carColor").textContent =
+        car.color;
+
+    document.getElementById("carModel").textContent =
+        car.name;
+
+    document.getElementById("carNumber").textContent =
+        `${currentIndex + 1} / ${cars.length}`;
+
+
+    /*
+        Use a different emoji depending
+        on the car color.
+    */
+
+    document.getElementById("featuredCar").textContent =
+        getCarEmoji(car.color);
+
+
+    highlightShelfCar();
+
+}
+
+
+/* =========================================================
+   CAR EMOJI
+========================================================= */
+
+function getCarEmoji(color) {
+
+    const c = color.toLowerCase();
+
+    if (c.includes("red")) return "🏎️";
+
+    if (c.includes("blue")) return "🚙";
+
+    if (c.includes("green")) return "🚗";
+
+    if (c.includes("black")) return "🏎️";
+
+    if (c.includes("white")) return "🚘";
+
+    if (c.includes("orange")) return "🏎️";
+
+    if (c.includes("yellow")) return "🚕";
+
+    if (c.includes("purple")) return "🚗";
+
+    return "🚗";
+
+}
+
+
+/* =========================================================
+   NEXT / PREVIOUS
+========================================================= */
+
+function nextCar() {
+
+    showCar(currentIndex + 1);
+
+}
+
+function previousCar() {
+
+    showCar(currentIndex - 1);
+
+}
+
+
+/* =========================================================
+   BACKGROUND SHELVES
+========================================================= */
+
+function createShelves() {
+
+    const shelvesContainer =
+        document.getElementById("shelves");
+
+    shelvesContainer.innerHTML = "";
+
+
+    /*
+        We display a small rotating selection
+        of cars in the background.
+
+        The full collection still exists in
+        the CSV and can be browsed with arrows.
+    */
+
+    const visibleCars = 28;
+
+    for (let shelfNumber = 0; shelfNumber < 7; shelfNumber++) {
+
+        const shelf = document.createElement("div");
+
+        shelf.className = "shelf";
+
+
+        for (let position = 0; position < 4; position++) {
+
+            const index =
+                (shelfNumber * 4 + position) % cars.length;
+
+            const car = cars[index];
+
+            const carElement =
+                document.createElement("div");
+
+            carElement.className = "shelf-car";
+
+            carElement.textContent =
+                getCarEmoji(car.color);
+
+            carElement.title =
+                car.name;
+
+
+            carElement.onclick = function() {
+
+                showCar(index);
+
+            };
+
+
+            shelf.appendChild(carElement);
+
+        }
+
+
+        shelvesContainer.appendChild(shelf);
+
+    }
+
+}
+
+
+/* =========================================================
+   HIGHLIGHT CURRENT SHELF CAR
+========================================================= */
+
+function highlightShelfCar() {
+
+    const shelfCars =
+        document.querySelectorAll(".shelf-car");
+
+    shelfCars.forEach((element, index) => {
+
+        element.style.opacity =
+            index === currentIndex % 28
+                ? "1"
+                : "0.65";
+
+    });
+
+}
+
+
+/* =========================================================
+   SORTING
+========================================================= */
+
+function sortByBrand() {
+
+    cars.sort((a, b) =>
+        a.brand.localeCompare(b.brand)
+    );
+
+    currentIndex = 0;
+
+    createShelves();
+
+    showCar(0);
+
+}
+
+
+function sortByColor() {
+
+    cars.sort((a, b) =>
+        a.color.localeCompare(b.color)
+    );
+
+    currentIndex = 0;
+
+    createShelves();
+
+    showCar(0);
+
+}
+
+
+function sortByName() {
+
+    cars.sort((a, b) =>
+        a.name.localeCompare(b.name)
+    );
+
+    currentIndex = 0;
+
+    createShelves();
+
+    showCar(0);
+
+}
+
+
+/* =========================================================
+   START WEBSITE
+========================================================= */
+
+loadCollection();
+
 </script>
+
 </body>
 </html>
