@@ -1,1405 +1,819 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SHADSHOT — My Die-Cast Cars Collection</title>
-
-<style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-:root {
-    --bg: #08090b;
-    --panel: #111317;
-    --panel2: #15181d;
-    --border: #41454b;
-    --text: #f4f4f4;
-    --muted: #9c9c9c;
-    --red: #ff4b35;
-    --red2: #ff2615;
-    --glow: rgba(255, 60, 40, 0.35);
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background:
-        radial-gradient(circle at 50% 35%, rgba(255,50,30,.08), transparent 35%),
-        var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-}
-
-button {
-    font-family: inherit;
-}
-
-/* =========================
-   HEADER
-========================= */
-
-header {
-    height: 92px;
-    border-bottom: 1px solid #303238;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 5%;
-    position: sticky;
-    top: 0;
-    z-index: 20;
-    background: rgba(8,9,11,.94);
-    backdrop-filter: blur(12px);
-}
-
-.logo-area {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.logo {
-    width: 48px;
-    height: 48px;
-    border: 3px solid var(--red);
-    border-radius: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 27px;
-    font-weight: 900;
-    color: var(--red);
-    box-shadow: 0 0 18px rgba(255,60,40,.2);
-}
-
-.logo-title {
-    font-size: 20px;
-    font-weight: 900;
-    letter-spacing: 2px;
-}
-
-.logo-subtitle {
-    color: var(--red);
-    font-size: 11px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    margin-top: 4px;
-}
-
-.header-icons {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
-
-.icon-button {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 25px;
-    cursor: pointer;
-}
-
-/* =========================
-   MAIN
-========================= */
-
-main {
-    width: 90%;
-    max-width: 1400px;
-    margin: 35px auto 80px;
-}
-
-/* =========================
-   STATS
-========================= */
-
-.stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-    margin-bottom: 28px;
-}
-
-.stat-card {
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    background: linear-gradient(145deg, #15181d, #0d0f12);
-    min-height: 120px;
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    gap: 18px;
-}
-
-.stat-icon {
-    width: 54px;
-    height: 54px;
-    border-radius: 12px;
-    background: rgba(255,255,255,.08);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 27px;
-}
-
-.stat-number {
-    font-size: 34px;
-    font-weight: 900;
-}
-
-.stat-label {
-    font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    color: #c7c7c7;
-    margin-top: 4px;
-}
-
-/* =========================
-   COLLECTION PANEL
-========================= */
-
-.collection-panel {
-    border: 1px solid #34373c;
-    border-radius: 22px;
-    padding: 35px 28px 25px;
-    background:
-        radial-gradient(ellipse at center, rgba(255,50,30,.08), transparent 55%),
-        #101216;
-    overflow: hidden;
-    position: relative;
-}
-
-.red-line {
-    height: 3px;
-    width: 88%;
-    margin: 0 auto 35px;
-    background: var(--red);
-    box-shadow:
-        0 0 10px var(--red),
-        0 0 25px var(--glow);
-    border-radius: 100%;
-}
-
-/* =========================
-   CAR DISPLAY
-========================= */
-
-.car-display {
-    min-height: 520px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.arrow {
-    position: absolute;
-    top: 43%;
-    transform: translateY(-50%);
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    border: 2px solid var(--red);
-    background: rgba(255,50,30,.08);
-    color: var(--red);
-    font-size: 28px;
-    cursor: pointer;
-    z-index: 5;
-    transition: .2s;
-}
-
-.arrow:hover {
-    background: var(--red);
-    color: black;
-    box-shadow: 0 0 25px var(--glow);
-}
-
-.arrow.left {
-    left: 10px;
-}
-
-.arrow.right {
-    right: 10px;
-}
-
-.platform {
-    width: 70%;
-    height: 130px;
-    position: absolute;
-    bottom: 165px;
-    border-radius: 50%;
-    border: 4px solid var(--red);
-    box-shadow:
-        0 0 12px var(--red),
-        inset 0 0 25px rgba(255,40,20,.4);
-    transform: perspective(500px) rotateX(55deg);
-}
-
-.platform::before {
-    content: "";
-    position: absolute;
-    left: 8%;
-    right: 8%;
-    top: 35%;
-    height: 3px;
-    background: var(--red);
-    box-shadow: 0 0 15px var(--red);
-}
-
-.featured-car {
-    position: absolute;
-    bottom: 190px;
-    font-size: 90px;
-    z-index: 2;
-    filter: drop-shadow(0 0 15px rgba(255,50,30,.5));
-    transition: .3s;
-}
-
-.car-info {
-    width: 80%;
-    max-width: 850px;
-    border: 1px solid #555961;
-    border-radius: 16px;
-    background: rgba(14,15,18,.96);
-    padding: 24px;
-    position: absolute;
-    bottom: 15px;
-    z-index: 3;
-}
-
-.car-title-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 22px;
-}
-
-.car-title {
-    font-size: 22px;
-    font-weight: 900;
-}
-
-.year {
-    color: var(--red);
-    font-weight: bold;
-    font-size: 17px;
-}
-
-.car-details {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.car-details div {
-    font-size: 11px;
-    color: #a5a5a5;
-    font-weight: bold;
-}
-
-.car-details strong {
-    display: block;
-    color: white;
-    font-size: 15px;
-    margin-top: 6px;
-}
-
-/* =========================
-   SEARCH
-========================= */
-
-.search-box {
-    display: none;
-    margin-bottom: 25px;
-}
-
-.search-box.active {
-    display: block;
-}
-
-.search-box input {
-    width: 100%;
-    padding: 17px 20px;
-    border-radius: 12px;
-    border: 1px solid #444;
-    background: #111317;
-    color: white;
-    font-size: 16px;
-    outline: none;
-}
-
-.search-box input:focus {
-    border-color: var(--red);
-    box-shadow: 0 0 15px rgba(255,60,40,.15);
-}
-
-/* =========================
-   EXPLORE
-========================= */
-
-.explore {
-    margin-top: 30px;
-}
-
-.section-title {
-    font-size: 15px;
-    font-weight: 900;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
-}
-
-.explore-item {
-    border-top: 1px solid #34363a;
-    padding: 18px 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-}
-
-.explore-item:last-child {
-    border-bottom: 1px solid #34363a;
-}
-
-.explore-left {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    font-weight: bold;
-}
-
-.explore-icon {
-    font-size: 22px;
-}
-
-.explore-arrow {
-    color: var(--red);
-    font-size: 22px;
-}
-
-/* =========================
-   CAR LIST
-========================= */
-
-.car-list {
-    margin-top: 25px;
-    display: none;
-}
-
-.car-list.active {
-    display: block;
-}
-
-.list-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    align-items: center;
-}
-
-.list-header h2 {
-    font-size: 20px;
-}
-
-.close-list {
-    border: 1px solid #555;
-    background: none;
-    color: white;
-    padding: 8px 15px;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.car-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    gap: 15px;
-}
-
-.car-card {
-    background: #131519;
-    border: 1px solid #383b40;
-    border-radius: 13px;
-    padding: 18px;
-    transition: .2s;
-}
-
-.car-card:hover {
-    border-color: var(--red);
-    transform: translateY(-2px);
-}
-
-.car-card-name {
-    font-size: 15px;
-    font-weight: 900;
-    margin-bottom: 10px;
-}
-
-.car-card-brand {
-    color: #bbb;
-    font-size: 12px;
-}
-
-.car-card-color {
-    color: var(--red);
-    font-size: 12px;
-    margin-top: 6px;
-    font-weight: bold;
-}
-
-/* =========================
-   ERROR
-========================= */
-
-.error {
-    display: none;
-    padding: 20px;
-    border: 1px solid var(--red);
-    border-radius: 12px;
-    color: #ff8275;
-    margin-top: 20px;
-    background: rgba(255,50,30,.08);
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    text-align: center;
-    padding: 50px 20px;
-    border-top: 1px solid #292b2f;
-    color: #999;
-    font-size: 13px;
-}
-
-footer strong {
-    color: white;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 800px) {
-
-    header {
-        height: 78px;
-        padding: 0 5%;
-    }
-
-    .logo {
-        width: 40px;
-        height: 40px;
-        font-size: 22px;
-    }
-
-    .logo-title {
-        font-size: 16px;
-    }
-
-    .logo-subtitle {
-        font-size: 9px;
-    }
-
-    main {
-        width: 94%;
-        margin-top: 20px;
-    }
-
-    .stats {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
-
-    .stat-card {
-        min-height: 95px;
-        padding: 13px;
-        gap: 10px;
-    }
-
-    .stat-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 20px;
-    }
-
-    .stat-number {
-        font-size: 25px;
-    }
-
-    .stat-label {
-        font-size: 9px;
-    }
-
-    .collection-panel {
-        padding: 25px 10px 20px;
-    }
-
-    .car-display {
-        min-height: 470px;
-    }
-
-    .platform {
-        width: 80%;
-        bottom: 170px;
-    }
-
-    .featured-car {
-        bottom: 205px;
-        font-size: 70px;
-    }
-
-    .car-info {
-        width: 92%;
-        padding: 17px;
-        bottom: 10px;
-    }
-
-    .car-title {
-        font-size: 16px;
-    }
-
-    .year {
-        font-size: 13px;
-    }
-
-    .car-details {
-        gap: 10px;
-    }
-
-    .car-details strong {
-        font-size: 13px;
-    }
-
-    .arrow {
-        width: 45px;
-        height: 45px;
-        font-size: 22px;
-    }
-
-    .arrow.left {
-        left: 0;
-    }
-
-    .arrow.right {
-        right: 0;
-    }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shadshot Collection</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background: #0f0f0f;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px 25px;
+        }
+
+        header h1 {
+            font-size: 36px;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: #aaaaaa;
+            font-size: 15px;
+        }
+
+        .featured-section {
+            max-width: 900px;
+            margin: 20px auto 45px;
+            padding: 0 20px;
+        }
+
+        .featured-label {
+            text-align: center;
+            color: #999999;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .featured-card {
+            background: #1b1b1b;
+            border: 1px solid #333333;
+            border-radius: 18px;
+            padding: 35px;
+            text-align: center;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+        }
+
+        .featured-card h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .details {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background: #292929;
+            border-radius: 20px;
+            padding: 8px 14px;
+            color: #dddddd;
+            font-size: 13px;
+        }
+
+        .new-car-btn {
+            margin-top: 25px;
+            padding: 12px 22px;
+            border: none;
+            border-radius: 25px;
+            background: #ffffff;
+            color: #111111;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .new-car-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .collection {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px 50px;
+        }
+
+        .collection-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .collection-header h2 {
+            font-size: 24px;
+        }
+
+        .count {
+            color: #999999;
+            font-size: 14px;
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px 14px;
+            background: #1b1b1b;
+            border: 1px solid #333333;
+            border-radius: 10px;
+            color: #ffffff;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #666666;
+        }
+
+        .car-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 15px;
+        }
+
+        .car-card {
+            background: #191919;
+            border: 1px solid #2d2d2d;
+            border-radius: 14px;
+            padding: 20px;
+            transition: 0.2s;
+        }
+
+        .car-card:hover {
+            transform: translateY(-3px);
+            border-color: #555555;
+        }
+
+        .car-card h3 {
+            font-size: 17px;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .car-info {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            color: #aaaaaa;
+            font-size: 13px;
+        }
+
+        .car-info span strong {
+            color: #dddddd;
+        }
+
+        .loading,
+        .error,
+        .no-results {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999999;
+        }
+
+        .error {
+            color: #ff7777;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #666666;
+            font-size: 12px;
+        }
+
+        @media (max-width: 800px) {
+            .controls {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+            header h1 {
+                font-size: 28px;
+            }
+
+            .featured-card {
+                padding: 25px 15px;
+            }
+
+            .featured-card h2 {
+                font-size: 23px;
+            }
+
+            .controls {
+                grid-template-columns: 1fr;
+            }
+
+            .car-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
 <header>
-
-    <div class="logo-area">
-        <div class="logo">S</div>
-
-        <div>
-            <div class="logo-title">SHADSHOT</div>
-            <div class="logo-subtitle">MY DIE-CAST CARS COLLECTION</div>
-        </div>
-    </div>
-
-    <div class="header-icons">
-        <button class="icon-button" id="searchButton">⌕</button>
-        <button class="icon-button" id="themeButton">☾</button>
-    </div>
-
+    <h1>Shadshot Collection</h1>
+    <p>My die-cast car collection</p>
 </header>
 
 
-<main>
+<section class="featured-section">
 
-    <div class="search-box" id="searchBox">
+    <div class="featured-label">
+        Today's Car
+    </div>
+
+    <div class="featured-card" id="featuredCard">
+        <div class="loading">
+            Loading collection...
+        </div>
+    </div>
+
+</section>
+
+
+<section class="collection">
+
+    <div class="collection-header">
+        <h2>My Collection</h2>
+        <div class="count" id="collectionCount">
+            Loading...
+        </div>
+    </div>
+
+
+    <div class="controls">
+
         <input
             type="text"
-            id="searchInput"
-            placeholder="Search your collection..."
+            id="search"
+            placeholder="Search cars..."
         >
+
+        <select id="manufacturerFilter">
+            <option value="">All Manufacturers</option>
+        </select>
+
+        <select id="brandFilter">
+            <option value="">All Car Brands</option>
+        </select>
+
+        <select id="colorFilter">
+            <option value="">All Colors</option>
+        </select>
+
     </div>
 
 
-    <!-- =========================
-         STATISTICS
-    ========================== -->
-
-    <section class="stats">
-
-        <div class="stat-card">
-            <div class="stat-icon">🚗</div>
-            <div>
-                <div class="stat-number" id="totalCars">—</div>
-                <div class="stat-label">TOTAL CARS</div>
-            </div>
+    <div id="carGrid" class="car-grid">
+        <div class="loading">
+            Loading cars...
         </div>
-
-        <div class="stat-card">
-            <div class="stat-icon">🏭</div>
-            <div>
-                <div class="stat-number" id="totalBrands">—</div>
-                <div class="stat-label">BRANDS</div>
-            </div>
-        </div>
-
-        <div class="stat-card">
-            <div class="stat-icon">🎨</div>
-            <div>
-                <div class="stat-number" id="totalColors">—</div>
-                <div class="stat-label">COLORS</div>
-            </div>
-        </div>
-
-        <div class="stat-card">
-            <div class="stat-icon">🏎️</div>
-            <div>
-                <div class="stat-number" id="totalModels">—</div>
-                <div class="stat-label">MODELS</div>
-            </div>
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         COLLECTION
-    ========================== -->
-
-    <section class="collection-panel">
-
-        <div class="red-line"></div>
-
-        <div class="car-display">
-
-            <button class="arrow left" id="previousCar">‹</button>
-
-            <button class="arrow right" id="nextCar">›</button>
-
-            <div class="platform"></div>
-
-            <div class="featured-car" id="featuredCar">
-                🚗
-            </div>
-
-            <div class="car-info">
-
-                <div class="car-title-row">
-
-                    <div class="car-title" id="carName">
-                        Loading collection...
-                    </div>
-
-                    <div class="year" id="carNumber">
-                        001
-                    </div>
-
-                </div>
-
-                <div class="car-details">
-
-                    <div>
-                        BRAND
-                        <strong id="carBrand">—</strong>
-                    </div>
-
-                    <div>
-                        COLOR
-                        <strong id="carColor">—</strong>
-                    </div>
-
-                    <div>
-                        MODEL
-                        <strong id="carModel">—</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <div class="error" id="errorBox">
-        <strong>Unable to load collection</strong>
-        <br>
-        <span id="errorMessage">
-            Make sure Collection.csv is uploaded to the same folder as index.html.
-        </span>
     </div>
 
-
-    <!-- =========================
-         EXPLORE
-    ========================== -->
-
-    <section class="explore">
-
-        <div class="section-title">
-            EXPLORE COLLECTION
-        </div>
-
-        <div
-            class="explore-item"
-            id="brandExplorer"
-        >
-            <div class="explore-left">
-                <span class="explore-icon">🏭</span>
-                <span>By Brand</span>
-            </div>
-
-            <span class="explore-arrow">›</span>
-        </div>
-
-
-        <div
-            class="explore-item"
-            id="colorExplorer"
-        >
-            <div class="explore-left">
-                <span class="explore-icon">🎨</span>
-                <span>By Color</span>
-            </div>
-
-            <span class="explore-arrow">›</span>
-        </div>
-
-
-        <div
-            class="explore-item"
-            id="modelExplorer"
-        >
-            <div class="explore-left">
-                <span class="explore-icon">🚗</span>
-                <span>All Models</span>
-            </div>
-
-            <span class="explore-arrow">›</span>
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         CAR LIST
-    ========================== -->
-
-    <section class="car-list" id="carList">
-
-        <div class="list-header">
-
-            <h2 id="listTitle">
-                Collection
-            </h2>
-
-            <button
-                class="close-list"
-                id="closeList"
-            >
-                Close
-            </button>
-
-        </div>
-
-        <div
-            class="car-grid"
-            id="carGrid"
-        ></div>
-
-    </section>
-
-</main>
+</section>
 
 
 <footer>
-
-    "It's not just a collection. It's a passion."
-
-    <br><br>
-
-    — <strong>SHADSHOT</strong>
-
+    Shadshot Collection
 </footer>
 
 
 <script>
 
-/* =========================================================
-   SHADSHOT COLLECTION
-   Loads Collection.csv automatically
-========================================================= */
-
-let cars = [];
-let currentCar = 0;
+    let cars = [];
+    let displayedCars = [];
 
 
-/* =========================================================
-   CSV PARSER
+    /*
+        ----------------------------------------------------
+        CSV READER
+        ----------------------------------------------------
+    */
 
-   This handles commas inside quoted CSV fields too.
-========================================================= */
+    async function loadCSV() {
 
-function parseCSV(text) {
+        try {
 
-    const rows = [];
+            const response = await fetch("Collection.csv");
 
-    let row = [];
-    let value = "";
-    let insideQuotes = false;
-
-    for (let i = 0; i < text.length; i++) {
-
-        const char = text[i];
-        const next = text[i + 1];
-
-        if (char === '"' && insideQuotes && next === '"') {
-
-            value += '"';
-            i++;
-
-        } else if (char === '"') {
-
-            insideQuotes = !insideQuotes;
-
-        } else if (char === "," && !insideQuotes) {
-
-            row.push(value.trim());
-            value = "";
-
-        } else if ((char === "\n" || char === "\r") && !insideQuotes) {
-
-            if (char === "\r" && next === "\n") {
-                i++;
+            if (!response.ok) {
+                throw new Error("Could not load Collection.csv");
             }
+
+            const csvText = await response.text();
+
+            cars = parseCSV(csvText);
+
+            if (cars.length === 0) {
+                throw new Error("No cars were found in Collection.csv");
+            }
+
+            displayedCars = [...cars];
+
+            setupFilters();
+
+            showFeaturedCar();
+
+            renderCars();
+
+        } catch (error) {
+
+            console.error(error);
+
+            document.getElementById("featuredCard").innerHTML =
+                `<div class="error">
+                    Could not load your collection.<br><br>
+                    Make sure <strong>Collection.csv</strong> is in the same GitHub folder as index.html.
+                </div>`;
+
+            document.getElementById("carGrid").innerHTML =
+                `<div class="error">
+                    Could not load Collection.csv.
+                </div>`;
+        }
+    }
+
+
+    /*
+        ----------------------------------------------------
+        CSV PARSER
+        ----------------------------------------------------
+    */
+
+    function parseCSV(text) {
+
+        const rows = [];
+        let row = [];
+        let value = "";
+        let insideQuotes = false;
+
+        for (let i = 0; i < text.length; i++) {
+
+            const char = text[i];
+            const nextChar = text[i + 1];
+
+            if (char === '"' && insideQuotes && nextChar === '"') {
+
+                value += '"';
+                i++;
+
+            } else if (char === '"') {
+
+                insideQuotes = !insideQuotes;
+
+            } else if (char === "," && !insideQuotes) {
+
+                row.push(value.trim());
+                value = "";
+
+            } else if ((char === "\n" || char === "\r") && !insideQuotes) {
+
+                if (char === "\r" && nextChar === "\n") {
+                    i++;
+                }
+
+                row.push(value.trim());
+                value = "";
+
+                if (row.some(cell => cell !== "")) {
+                    rows.push(row);
+                }
+
+                row = [];
+
+            } else {
+
+                value += char;
+            }
+        }
+
+        if (value !== "" || row.length > 0) {
 
             row.push(value.trim());
 
             if (row.some(cell => cell !== "")) {
                 rows.push(row);
             }
-
-            row = [];
-            value = "";
-
-        } else {
-
-            value += char;
-        }
-    }
-
-    if (value !== "" || row.length > 0) {
-
-        row.push(value.trim());
-
-        if (row.some(cell => cell !== "")) {
-            rows.push(row);
-        }
-    }
-
-    return rows;
-}
-
-
-/* =========================================================
-   LOAD CSV
-========================================================= */
-
-async function loadCollection() {
-
-    try {
-
-        /*
-         IMPORTANT:
-         This must exactly match your GitHub filename.
-        */
-
-        const response = await fetch("./Collection.csv");
-
-        if (!response.ok) {
-            throw new Error(
-                "Collection.csv could not be found."
-            );
         }
 
-        const csvText = await response.text();
-
-        const rows = parseCSV(csvText);
 
         if (rows.length < 2) {
-            throw new Error(
-                "Collection.csv appears to be empty."
-            );
+            return [];
         }
+
 
         const headers = rows[0].map(header =>
-            header.trim().toLowerCase()
+            header
+                .replace(/^\uFEFF/, "")
+                .trim()
+                .toLowerCase()
         );
 
 
-        /* Find columns automatically */
+        return rows.slice(1).map(row => {
 
-        const nameIndex = headers.findIndex(header =>
-            header.includes("car name") ||
-            header === "name" ||
-            header.includes("model")
-        );
+            const data = {};
 
-        const brandIndex = headers.findIndex(header =>
-            header.includes("manufacturer") ||
-            header.includes("brand")
-        );
-
-        const colorIndex = headers.findIndex(header =>
-            header.includes("color") ||
-            header.includes("colour")
-        );
+            headers.forEach((header, index) => {
+                data[header] = row[index] || "";
+            });
 
 
-        if (nameIndex === -1) {
-            throw new Error(
-                "Could not find the Car Name column."
-            );
-        }
+            return {
 
-        if (brandIndex === -1) {
-            throw new Error(
-                "Could not find the Manufacturer column."
-            );
-        }
+                name:
+                    data["car name"] ||
+                    data["cars"] ||
+                    "",
 
-        if (colorIndex === -1) {
-            throw new Error(
-                "Could not find the Color column."
-            );
-        }
+                manufacturer:
+                    data["manufacturer"] ||
+                    "",
 
+                color:
+                    data["color"] ||
+                    "",
 
-        /* Convert CSV rows into car objects */
+                carBrand:
+                    data["car brand"] ||
+                    ""
 
-        cars = rows
-            .slice(1)
-            .map((row, index) => {
+            };
 
-                return {
-
-                    number:
-                        row[0] ||
-                        String(index + 1),
-
-                    name:
-                        row[nameIndex] ||
-                        "Unknown Car",
-
-                    brand:
-                        row[brandIndex] ||
-                        "Unknown",
-
-                    color:
-                        row[colorIndex] ||
-                        "Unknown"
-
-                };
-
-            })
-            .filter(car =>
-                car.name.trim() !== ""
-            );
-
-
-        if (cars.length === 0) {
-            throw new Error(
-                "No cars were found in Collection.csv."
-            );
-        }
-
-
-        /* Update website */
-
-        updateStatistics();
-
-        showCar(0);
-
-        hideError();
-
-    } catch (error) {
-
-        console.error(error);
-
-        showError(error.message);
+        }).filter(car => car.name !== "");
 
     }
-}
-
-
-/* =========================================================
-   STATISTICS
-========================================================= */
-
-function updateStatistics() {
-
-    const brands = new Set(
-        cars.map(car =>
-            car.brand.trim().toUpperCase()
-        )
-    );
-
-    const colors = new Set(
-        cars.map(car =>
-            car.color.trim().toUpperCase()
-        )
-    );
-
-    const models = new Set(
-        cars.map(car =>
-            car.name.trim().toUpperCase()
-        )
-    );
-
-
-    document.getElementById("totalCars")
-        .textContent = cars.length;
-
-    document.getElementById("totalBrands")
-        .textContent = brands.size;
-
-    document.getElementById("totalColors")
-        .textContent = colors.size;
-
-    document.getElementById("totalModels")
-        .textContent = models.size;
-}
-
-
-/* =========================================================
-   SHOW CURRENT CAR
-========================================================= */
-
-function showCar(index) {
-
-    if (!cars.length) return;
-
-    if (index < 0) {
-        index = cars.length - 1;
-    }
-
-    if (index >= cars.length) {
-        index = 0;
-    }
-
-    currentCar = index;
-
-    const car = cars[currentCar];
-
-
-    document.getElementById("carName")
-        .textContent = car.name;
-
-    document.getElementById("carBrand")
-        .textContent = car.brand;
-
-    document.getElementById("carColor")
-        .textContent = car.color;
-
-    document.getElementById("carModel")
-        .textContent = car.name;
-
-    document.getElementById("carNumber")
-        .textContent =
-        String(currentCar + 1).padStart(3, "0");
 
 
     /*
-       We don't have car images in the CSV,
-       so the display uses a simple car icon.
+        ----------------------------------------------------
+        RANDOM CAR SYSTEM
+        ----------------------------------------------------
+
+        We store the cars already shown in the browser.
+
+        This means refreshing the website won't immediately
+        give you the same car.
+
+        Once every car has been shown, a new cycle begins.
     */
 
-    document.getElementById("featuredCar")
-        .textContent = "🚗";
-}
+    function showFeaturedCar() {
+
+        if (cars.length === 0) return;
 
 
-/* =========================================================
-   ARROW BUTTONS
-========================================================= */
-
-document.getElementById("previousCar")
-    .addEventListener("click", function() {
-
-        showCar(currentCar - 1);
-
-    });
-
-
-document.getElementById("nextCar")
-    .addEventListener("click", function() {
-
-        showCar(currentCar + 1);
-
-    });
-
-
-/* =========================================================
-   SEARCH
-========================================================= */
-
-const searchButton =
-    document.getElementById("searchButton");
-
-const searchBox =
-    document.getElementById("searchBox");
-
-const searchInput =
-    document.getElementById("searchInput");
-
-
-searchButton.addEventListener("click", function() {
-
-    searchBox.classList.toggle("active");
-
-    if (searchBox.classList.contains("active")) {
-        searchInput.focus();
-    }
-
-});
-
-
-searchInput.addEventListener("input", function() {
-
-    const query =
-        searchInput.value.trim().toLowerCase();
-
-    if (!query) {
-        hideCarList();
-        return;
-    }
-
-    const results = cars.filter(car =>
-
-        car.name.toLowerCase().includes(query) ||
-
-        car.brand.toLowerCase().includes(query) ||
-
-        car.color.toLowerCase().includes(query)
-
-    );
-
-    showList(results, "Search Results");
-
-});
-
-
-/* =========================================================
-   EXPLORE BY BRAND
-========================================================= */
-
-document.getElementById("brandExplorer")
-    .addEventListener("click", function() {
-
-        showList(
-            cars,
-            "Cars by Brand"
+        let seenCars = JSON.parse(
+            localStorage.getItem("shadshotSeenCars") || "[]"
         );
 
-    });
+
+        // If every car has been seen, start again.
+        if (seenCars.length >= cars.length) {
+
+            seenCars = [];
+
+        }
 
 
-/* =========================================================
-   EXPLORE BY COLOR
-========================================================= */
-
-document.getElementById("colorExplorer")
-    .addEventListener("click", function() {
-
-        showList(
-            cars,
-            "Cars by Color"
+        // Find cars that haven't been shown yet.
+        const availableCars = cars.filter((car, index) =>
+            !seenCars.includes(index)
         );
 
-    });
+
+        // Pick a random unseen car.
+        const randomPosition =
+            Math.floor(Math.random() * availableCars.length);
+
+        const selectedCar =
+            availableCars[randomPosition];
 
 
-/* =========================================================
-   ALL MODELS
-========================================================= */
+        const selectedIndex =
+            cars.indexOf(selectedCar);
 
-document.getElementById("modelExplorer")
-    .addEventListener("click", function() {
 
-        showList(
-            cars,
-            "All Models"
+        // Remember this car.
+        seenCars.push(selectedIndex);
+
+        localStorage.setItem(
+            "shadshotSeenCars",
+            JSON.stringify(seenCars)
         );
 
-    });
 
+        document.getElementById("featuredCard").innerHTML = `
 
-/* =========================================================
-   SHOW CAR LIST
-========================================================= */
+            <h2>${escapeHTML(selectedCar.name)}</h2>
 
-function showList(list, title) {
+            <div class="details">
 
-    const carList =
-        document.getElementById("carList");
+                ${selectedCar.manufacturer
+                    ? `<div class="tag">
+                        Manufacturer: ${escapeHTML(selectedCar.manufacturer)}
+                       </div>`
+                    : ""
+                }
 
-    const carGrid =
-        document.getElementById("carGrid");
+                ${selectedCar.carBrand
+                    ? `<div class="tag">
+                        Brand: ${escapeHTML(selectedCar.carBrand)}
+                       </div>`
+                    : ""
+                }
 
-    const listTitle =
-        document.getElementById("listTitle");
+                ${selectedCar.color
+                    ? `<div class="tag">
+                        Color: ${escapeHTML(selectedCar.color)}
+                       </div>`
+                    : ""
+                }
 
-
-    listTitle.textContent =
-        title + " (" + list.length + ")";
-
-
-    carGrid.innerHTML = "";
-
-
-    list.forEach((car, index) => {
-
-        const card =
-            document.createElement("div");
-
-        card.className = "car-card";
-
-
-        card.innerHTML = `
-
-            <div class="car-card-name">
-                ${escapeHTML(car.name)}
             </div>
 
-            <div class="car-card-brand">
-                BRAND: ${escapeHTML(car.brand)}
-            </div>
-
-            <div class="car-card-color">
-                COLOR: ${escapeHTML(car.color)}
-            </div>
+            <button class="new-car-btn" onclick="showFeaturedCar()">
+                Show Another Car
+            </button>
 
         `;
 
+    }
 
-        card.addEventListener("click", function() {
 
-            const actualIndex =
-                cars.indexOf(car);
+    /*
+        ----------------------------------------------------
+        FILTERS
+        ----------------------------------------------------
+    */
 
-            if (actualIndex !== -1) {
+    function setupFilters() {
 
-                showCar(actualIndex);
+        const manufacturers =
+            [...new Set(
+                cars
+                    .map(car => car.manufacturer)
+                    .filter(Boolean)
+            )]
+            .sort();
 
-                window.scrollTo({
-                    top: 300,
-                    behavior: "smooth"
-                });
 
-            }
+        const brands =
+            [...new Set(
+                cars
+                    .map(car => car.carBrand)
+                    .filter(Boolean)
+            )]
+            .sort();
+
+
+        const colors =
+            [...new Set(
+                cars
+                    .map(car => car.color)
+                    .filter(Boolean)
+            )]
+            .sort();
+
+
+        fillSelect(
+            "manufacturerFilter",
+            manufacturers
+        );
+
+        fillSelect(
+            "brandFilter",
+            brands
+        );
+
+        fillSelect(
+            "colorFilter",
+            colors
+        );
+
+
+        document.getElementById("search")
+            .addEventListener("input", applyFilters);
+
+        document.getElementById("manufacturerFilter")
+            .addEventListener("change", applyFilters);
+
+        document.getElementById("brandFilter")
+            .addEventListener("change", applyFilters);
+
+        document.getElementById("colorFilter")
+            .addEventListener("change", applyFilters);
+
+    }
+
+
+    function fillSelect(id, values) {
+
+        const select = document.getElementById(id);
+
+        values.forEach(value => {
+
+            const option =
+                document.createElement("option");
+
+            option.value = value;
+            option.textContent = value;
+
+            select.appendChild(option);
+
+        });
+
+    }
+
+
+    /*
+        ----------------------------------------------------
+        SEARCH + FILTER
+        ----------------------------------------------------
+    */
+
+    function applyFilters() {
+
+        const search =
+            document.getElementById("search")
+                .value
+                .toLowerCase()
+                .trim();
+
+
+        const manufacturer =
+            document.getElementById("manufacturerFilter")
+                .value;
+
+
+        const brand =
+            document.getElementById("brandFilter")
+                .value;
+
+
+        const color =
+            document.getElementById("colorFilter")
+                .value;
+
+
+        displayedCars = cars.filter(car => {
+
+            const matchesSearch =
+                !search ||
+                car.name.toLowerCase().includes(search) ||
+                car.manufacturer.toLowerCase().includes(search) ||
+                car.carBrand.toLowerCase().includes(search);
+
+
+            const matchesManufacturer =
+                !manufacturer ||
+                car.manufacturer === manufacturer;
+
+
+            const matchesBrand =
+                !brand ||
+                car.carBrand === brand;
+
+
+            const matchesColor =
+                !color ||
+                car.color === color;
+
+
+            return (
+                matchesSearch &&
+                matchesManufacturer &&
+                matchesBrand &&
+                matchesColor
+            );
 
         });
 
 
-        carGrid.appendChild(card);
+        renderCars();
 
-    });
-
-
-    carList.classList.add("active");
-
-    carList.scrollIntoView({
-        behavior: "smooth"
-    });
-}
+    }
 
 
-/* =========================================================
-   CLOSE LIST
-========================================================= */
+    /*
+        ----------------------------------------------------
+        DISPLAY COLLECTION
+        ----------------------------------------------------
+    */
 
-document.getElementById("closeList")
-    .addEventListener("click", function() {
+    function renderCars() {
 
-        hideCarList();
-
-    });
-
-
-function hideCarList() {
-
-    document.getElementById("carList")
-        .classList.remove("active");
-
-}
+        const grid =
+            document.getElementById("carGrid");
 
 
-/* =========================================================
-   HTML SAFETY
-========================================================= */
-
-function escapeHTML(value) {
-
-    return String(value)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-
-}
+        document.getElementById("collectionCount")
+            .textContent =
+            `${displayedCars.length} cars`;
 
 
-/* =========================================================
-   ERROR HANDLING
-========================================================= */
+        if (displayedCars.length === 0) {
 
-function showError(message) {
+            grid.innerHTML = `
+                <div class="no-results">
+                    No cars found.
+                </div>
+            `;
 
-    const box =
-        document.getElementById("errorBox");
-
-    const messageBox =
-        document.getElementById("errorMessage");
-
-    messageBox.textContent = message;
-
-    box.style.display = "block";
-}
+            return;
+        }
 
 
-function hideError() {
+        grid.innerHTML = displayedCars.map(car => `
 
-    document.getElementById("errorBox")
-        .style.display = "none";
+            <div class="car-card">
 
-}
+                <h3>
+                    ${escapeHTML(car.name)}
+                </h3>
+
+                <div class="car-info">
+
+                    ${car.manufacturer
+                        ? `<span>
+                            <strong>Manufacturer:</strong>
+                            ${escapeHTML(car.manufacturer)}
+                           </span>`
+                        : ""
+                    }
+
+                    ${car.carBrand
+                        ? `<span>
+                            <strong>Brand:</strong>
+                            ${escapeHTML(car.carBrand)}
+                           </span>`
+                        : ""
+                    }
+
+                    ${car.color
+                        ? `<span>
+                            <strong>Color:</strong>
+                            ${escapeHTML(car.color)}
+                           </span>`
+                        : ""
+                    }
+
+                </div>
+
+            </div>
+
+        `).join("");
+
+    }
 
 
-/* =========================================================
-   THEME BUTTON
-========================================================= */
+    /*
+        ----------------------------------------------------
+        SECURITY
+        ----------------------------------------------------
+    */
 
-document.getElementById("themeButton")
-    .addEventListener("click", function() {
+    function escapeHTML(value) {
 
-        document.body.classList.toggle("light-mode");
+        return String(value)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
 
-    });
+    }
 
 
-/* =========================================================
-   START
-========================================================= */
+    /*
+        ----------------------------------------------------
+        START WEBSITE
+        ----------------------------------------------------
+    */
 
-loadCollection();
+    loadCSV();
 
 </script>
 
