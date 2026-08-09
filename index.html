@@ -1,718 +1,2198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shadshot Collection</title>
-  <style>
-    :root {
-      --bg: #07070a;
-      --panel: rgba(18, 18, 24, 0.92);
-      --panel-2: rgba(24, 24, 32, 0.96);
-      --text: #f5f7ff;
-      --muted: #a4a8b8;
-      --border: rgba(255, 255, 255, 0.14);
-      --red: #ff3b30;
-      --gold: #ffb347;
-      --glow: rgba(255, 59, 48, 0.18);
-      --glow-2: rgba(255, 179, 71, 0.18);
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shadshot Collection</title>
+
+<style>
+:root {
+    --bg: #050506;
+    --red: #ff2418;
+    --red-dark: #7b0804;
+    --gold: #ffc14a;
+    --gold-dark: #8b5d13;
+    --text: #f7f3e9;
+    --muted: #aaa39a;
+    --card: rgba(13, 12, 12, 0.92);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    color: var(--text);
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 20%,
+            rgba(150, 15, 8, 0.24),
+            transparent 42%
+        ),
+        radial-gradient(
+            ellipse at 50% 75%,
+            rgba(255, 36, 24, 0.06),
+            transparent 40%
+        ),
+        #050506;
+
+    overflow-x: hidden;
+}
+
+/* --------------------------------------------------
+   GENERAL
+-------------------------------------------------- */
+
+.container {
+    width: min(1400px, calc(100% - 42px));
+    margin: auto;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+
+/* --------------------------------------------------
+   HEADER
+-------------------------------------------------- */
+
+header {
+    text-align: center;
+    padding: 28px 20px 10px;
+    position: relative;
+    z-index: 5;
+}
+
+.arc-reactor {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 14px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            white 0 9%,
+            #65dfff 10% 22%,
+            #009bd0 23% 35%,
+            #111 36% 52%,
+            transparent 53%
+        );
+
+    box-shadow:
+        0 0 12px #3bdfff,
+        0 0 28px rgba(0, 180, 255, 0.65);
+
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.logo-small {
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 8px;
+    margin-bottom: 4px;
+}
+
+header h1 {
+    font-size: clamp(42px, 7vw, 82px);
+    line-height: 0.95;
+    font-weight: 900;
+    letter-spacing: 2px;
+
+    color: #f7f7f7;
+
+    text-shadow:
+        0 0 8px rgba(255,255,255,0.35),
+        0 0 25px rgba(255, 40, 25, 0.28);
+}
+
+header h1 span {
+    color: #d71912;
+
+    text-shadow:
+        0 0 10px rgba(255, 35, 20, 0.7),
+        0 0 30px rgba(255, 35, 20, 0.3);
+}
+
+.subtitle {
+    margin-top: 14px;
+    color: #b9b2a9;
+    font-size: 14px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+
+/* --------------------------------------------------
+   SHOWROOM / HERO
+-------------------------------------------------- */
+
+.hero {
+    position: relative;
+    min-height: 600px;
+    margin-top: 12px;
+    overflow: hidden;
+}
+
+
+/* glowing horizontal line */
+
+.hero::before {
+    content: "";
+    position: absolute;
+    left: 12%;
+    right: 12%;
+    top: 82px;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--red),
+            var(--gold),
+            var(--red),
+            transparent
+        );
+
+    box-shadow: 0 0 15px rgba(255, 30, 20, 0.7);
+}
+
+
+/* --------------------------------------------------
+   BACKGROUND CAR STASH
+-------------------------------------------------- */
+
+.car-stash {
+    position: absolute;
+    inset: 70px 0 80px;
+
+    display: flex;
+    justify-content: space-between;
+
+    pointer-events: none;
+
+    opacity: 0.75;
+}
+
+.shelf-column {
+    width: 28%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 18px;
+}
+
+.shelf-column.left {
+    align-items: flex-start;
+}
+
+.shelf-column.right {
+    align-items: flex-end;
+}
+
+
+/* individual background shelf */
+
+.shelf {
+    width: 100%;
+    height: 105px;
+
+    position: relative;
+
+    border-bottom:
+        2px solid rgba(132, 82, 28, 0.55);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 155, 45, 0.025),
+            rgba(0,0,0,0.35)
+        );
+
+    box-shadow:
+        0 12px 20px rgba(0,0,0,0.5),
+        inset 0 -5px 20px rgba(0,0,0,0.4);
+}
+
+
+/* little background cars */
+
+.mini-car {
+    position: absolute;
+
+    width: 92px;
+    height: 34px;
+
+    bottom: 18px;
+
+    border-radius: 25px 35px 8px 8px;
+
+    opacity: 0.42;
+
+    filter: blur(1.2px);
+
+    background:
+        linear-gradient(
+            150deg,
+            #888,
+            #333
+        );
+
+    box-shadow:
+        0 0 15px rgba(255,255,255,0.05);
+}
+
+.mini-car::before {
+    content: "";
+
+    position: absolute;
+
+    width: 46px;
+    height: 18px;
+
+    top: -11px;
+    left: 20px;
+
+    border-radius: 24px 24px 2px 2px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #777,
+            #252525
+        );
+}
+
+.mini-car::after {
+    content: "";
+
+    position: absolute;
+
+    width: 11px;
+    height: 11px;
+
+    border-radius: 50%;
+
+    left: 13px;
+    bottom: -5px;
+
+    background: #080808;
+
+    box-shadow:
+        56px 0 #080808;
+}
+
+.mini-red {
+    background: linear-gradient(150deg, #b6251d, #3b0907);
+}
+
+.mini-blue {
+    background: linear-gradient(150deg, #3570a7, #101d32);
+}
+
+.mini-yellow {
+    background: linear-gradient(150deg, #d29b2a, #4b3108);
+}
+
+.mini-green {
+    background: linear-gradient(150deg, #477d52, #132418);
+}
+
+.mini-white {
+    background: linear-gradient(150deg, #ddd, #555);
+}
+
+.mini-orange {
+    background: linear-gradient(150deg, #d86921, #4b1c08);
+}
+
+
+/* --------------------------------------------------
+   CENTRAL STAGE
+-------------------------------------------------- */
+
+.stage {
+    position: absolute;
+
+    left: 50%;
+    top: 105px;
+
+    transform: translateX(-50%);
+
+    width: min(720px, 58vw);
+    height: 390px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
+    z-index: 3;
+}
+
+
+/* glowing floor */
+
+.stage-floor {
+    position: absolute;
+
+    width: 100%;
+    height: 190px;
+
+    bottom: 5px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(255, 34, 22, 0.27),
+            rgba(100, 5, 0, 0.16) 42%,
+            transparent 70%
+        );
+
+    box-shadow:
+        0 -2px 20px rgba(255, 36, 24, 0.15);
+}
+
+.stage-ring {
+    position: absolute;
+
+    width: 440px;
+    height: 125px;
+
+    bottom: 45px;
+
+    border-radius: 50%;
+
+    border:
+        2px solid rgba(255, 46, 31, 0.7);
+
+    box-shadow:
+        0 0 10px rgba(255, 38, 22, 0.8),
+        0 0 45px rgba(255, 38, 22, 0.25),
+        inset 0 0 25px rgba(255, 38, 22, 0.15);
+
+    transform: perspective(250px) rotateX(58deg);
+}
+
+
+/* central car */
+
+.featured-car {
+    position: relative;
+
+    width: min(480px, 70vw);
+    min-height: 190px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 4;
+
+    animation:
+        carAppear 0.35s ease;
+}
+
+
+/*
+   This is the visual placeholder for the selected car.
+
+   When we add actual car images later,
+   the image will sit here.
+*/
+
+.car-visual {
+    width: 390px;
+    height: 155px;
+
+    position: relative;
+
+    border-radius:
+        55% 45% 25% 20% /
+        70% 70% 30% 30%;
+
+    background:
+        linear-gradient(
+            160deg,
+            #d8d8d8,
+            #666 45%,
+            #1c1c1c 75%
+        );
+
+    box-shadow:
+        0 30px 35px rgba(0,0,0,0.7),
+        0 0 30px rgba(255, 50, 30, 0.15);
+
+    transform:
+        perspective(500px)
+        rotateX(2deg)
+        rotateY(-7deg);
+}
+
+.car-visual::before {
+    content: "";
+
+    position: absolute;
+
+    width: 190px;
+    height: 75px;
+
+    left: 93px;
+    top: -38px;
+
+    border-radius:
+        65px 65px 12px 12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #777,
+            #151515
+        );
+
+    border: 2px solid rgba(255,255,255,0.13);
+}
+
+.car-visual::after {
+    content: "";
+
+    position: absolute;
+
+    width: 47px;
+    height: 47px;
+
+    border-radius: 50%;
+
+    left: 42px;
+    bottom: -22px;
+
+    background:
+        radial-gradient(
+            circle,
+            #777 0 18%,
+            #111 20% 58%,
+            #333 60% 67%,
+            #070707 68%
+        );
+
+    box-shadow:
+        258px 0 0 -0px #111,
+        258px 0 0 0 #333;
+}
+
+
+/* --------------------------------------------------
+   FEATURED INFO
+-------------------------------------------------- */
+
+.featured-info {
+    position: absolute;
+
+    left: 50%;
+    bottom: -15px;
+
+    transform: translateX(-50%);
+
+    width: min(700px, 90vw);
+
+    text-align: center;
+
+    z-index: 7;
+}
+
+.featured-name {
+    font-size: clamp(25px, 4vw, 45px);
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        0 0 12px rgba(255,255,255,0.3),
+        0 0 25px rgba(255, 40, 25, 0.2);
+}
+
+.featured-meta {
+    margin-top: 17px;
+
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+.meta-box {
+    min-width: 160px;
+
+    padding: 12px 20px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(55, 12, 9, 0.8),
+            rgba(25, 7, 5, 0.95)
+        );
+
+    border:
+        1px solid rgba(255, 50, 30, 0.22);
+
+    box-shadow:
+        inset 0 0 18px rgba(255, 30, 20, 0.04);
+}
+
+.meta-label {
+    display: block;
+
+    color: var(--gold);
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 4px;
+}
+
+.meta-value {
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+
+/* --------------------------------------------------
+   NAVIGATION ARROWS
+-------------------------------------------------- */
+
+.nav-arrow {
+    position: absolute;
+
+    top: 48%;
+
+    transform: translateY(-50%);
+
+    width: 70px;
+    height: 70px;
+
+    border-radius: 50%;
+
+    border:
+        2px solid rgba(255, 50, 35, 0.85);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 45, 25, 0.14),
+            rgba(0,0,0,0.55)
+        );
+
+    color: var(--gold);
+
+    font-size: 52px;
+
+    line-height: 58px;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        background 0.18s ease;
+
+    box-shadow:
+        0 0 15px rgba(255, 36, 24, 0.35),
+        inset 0 0 18px rgba(255, 36, 24, 0.08);
+}
+
+.nav-arrow:hover {
+    transform:
+        translateY(-50%)
+        scale(1.08);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 45, 25, 0.3),
+            rgba(0,0,0,0.5)
+        );
+
+    box-shadow:
+        0 0 25px rgba(255, 36, 24, 0.7);
+}
+
+.nav-left {
+    left: 18px;
+}
+
+.nav-right {
+    right: 18px;
+}
+
+.arrow {
+    position: relative;
+    top: -3px;
+}
+
+
+/* --------------------------------------------------
+   COLLECTION SECTION
+-------------------------------------------------- */
+
+.collection {
+    position: relative;
+
+    margin-top: 20px;
+
+    z-index: 5;
+}
+
+.collection-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom:
+        1px solid rgba(255, 35, 22, 0.45);
+
+    padding-bottom: 10px;
+
+    margin-bottom: 18px;
+}
+
+.collection-title h2 {
+    font-size: 24px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+.collection-title h2::before {
+    content: "◈";
+
+    color: var(--gold);
+
+    margin-right: 10px;
+
+    font-size: 18px;
+}
+
+.collection-count {
+    color: #ddd;
+
+    font-size: 14px;
+}
+
+.collection-count strong {
+    color: var(--red);
+
+    font-size: 20px;
+}
+
+
+/* --------------------------------------------------
+   FILTERS
+-------------------------------------------------- */
+
+.controls {
+    display: grid;
+
+    grid-template-columns:
+        2fr
+        1fr
+        1fr
+        1fr;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+input,
+select {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(22, 16, 16, 0.95),
+            rgba(11, 10, 11, 0.95)
+        );
+
+    border:
+        1px solid rgba(255, 48, 30, 0.28);
+
+    border-radius: 8px;
+
+    outline: none;
+}
+
+input::placeholder {
+    color: #8f8983;
+}
+
+input:focus,
+select:focus {
+    border-color: rgba(255, 183, 65, 0.65);
+
+    box-shadow:
+        0 0 15px rgba(255, 50, 30, 0.12);
+}
+
+
+/* --------------------------------------------------
+   CAR GRID
+-------------------------------------------------- */
+
+.car-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill, minmax(215px, 1fr));
+
+    gap: 14px;
+}
+
+.car-card {
+    min-height: 165px;
+
+    padding: 17px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(25, 19, 18, 0.96),
+            rgba(9, 9, 10, 0.98)
+        );
+
+    border:
+        1px solid rgba(255, 42, 27, 0.22);
+
+    box-shadow:
+        inset 0 0 20px rgba(255, 30, 20, 0.025);
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.car-card:hover {
+    transform: translateY(-4px);
+
+    border-color:
+        rgba(255, 180, 60, 0.55);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.5),
+        0 0 20px rgba(255, 30, 20, 0.08);
+}
+
+.car-card h3 {
+    font-size: 16px;
+
+    line-height: 1.25;
+
+    margin-bottom: 14px;
+
+    text-transform: uppercase;
+}
+
+.car-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    color: #bdb7b0;
+
+    font-size: 12px;
+}
+
+.car-info strong {
+    color: #e9e5de;
+}
+
+.color-dot {
+    display: inline-block;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    margin-right: 5px;
+
+    background: var(--red);
+}
+
+
+/* --------------------------------------------------
+   LOADING
+-------------------------------------------------- */
+
+.loading,
+.error,
+.no-results {
+    text-align: center;
+
+    padding: 50px 20px;
+
+    color: var(--muted);
+}
+
+
+/* --------------------------------------------------
+   ANIMATION
+-------------------------------------------------- */
+
+@keyframes carAppear {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.97);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* --------------------------------------------------
+   MOBILE
+-------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+    .hero {
+        min-height: 600px;
     }
 
-    html, body {
-      min-height: 100%;
+    .stage {
+        width: 75vw;
     }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 50% 0%, rgba(255, 59, 48, 0.16), transparent 26%),
-        radial-gradient(circle at 80% 18%, rgba(255, 179, 71, 0.10), transparent 18%),
-        radial-gradient(circle at 0% 100%, rgba(255, 59, 48, 0.08), transparent 22%),
-        linear-gradient(180deg, #0b0b10 0%, #09090d 55%, #060608 100%);
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background:
-        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-      background-size: 42px 42px;
-      opacity: 0.22;
-      mask-image: linear-gradient(180deg, rgba(0,0,0,0.7), transparent);
-    }
-
-    .wrap {
-      width: min(1240px, calc(100% - 28px));
-      margin: 0 auto;
-      padding: 34px 0 56px;
-    }
-
-    header {
-      text-align: center;
-      padding: 18px 12px 30px;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: rgba(255, 255, 255, 0.04);
-      color: #e7e9f5;
-      font-size: 12px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.03) inset;
-    }
-
-    .badge-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--red), var(--gold));
-      box-shadow: 0 0 16px rgba(255, 59, 48, 0.8);
-    }
-
-    h1 {
-      font-size: clamp(2.2rem, 5vw, 4.1rem);
-      line-height: 0.98;
-      letter-spacing: 0.02em;
-      text-shadow:
-        0 0 18px rgba(255, 59, 48, 0.16),
-        0 0 36px rgba(255, 179, 71, 0.08);
-    }
-
-    .subtitle {
-      margin-top: 12px;
-      color: var(--muted);
-      font-size: 1rem;
-    }
-
-    .featured-section {
-      margin: 24px auto 42px;
-      position: relative;
-    }
-
-    .featured-label {
-      text-align: center;
-      color: #d6d9e8;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.34em;
-      margin-bottom: 14px;
-    }
-
-    .featured-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 28px;
-      padding: 30px 20px 26px;
-      border: 1px solid var(--border);
-      background:
-        radial-gradient(circle at 50% 35%, rgba(255, 179, 71, 0.08), transparent 32%),
-        radial-gradient(circle at 50% 0%, rgba(255, 59, 48, 0.20), transparent 30%),
-        linear-gradient(180deg, rgba(26, 26, 34, 0.96), rgba(15, 15, 20, 0.96));
-      box-shadow:
-        0 18px 50px rgba(0, 0, 0, 0.48),
-        0 0 0 1px rgba(255,255,255,0.03) inset,
-        0 0 42px rgba(255, 59, 48, 0.08);
-      min-height: 290px;
-    }
-
-    .featured-card::before {
-      content: "";
-      position: absolute;
-      inset: -2px;
-      border-radius: 28px;
-      padding: 2px;
-      background: linear-gradient(135deg, rgba(255,59,48,0.55), rgba(255,179,71,0.45), rgba(255,59,48,0.45));
-      -webkit-mask:
-        linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
-      -webkit-mask-composite: xor;
-              mask-composite: exclude;
-      opacity: 0.45;
-      pointer-events: none;
-    }
-
-    .featured-card::after {
-      content: "";
-      position: absolute;
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      left: 50%;
-      top: 52%;
-      transform: translate(-50%, -50%);
-      border: 1px solid rgba(255, 179, 71, 0.10);
-      box-shadow:
-        0 0 0 12px rgba(255, 59, 48, 0.03),
-        0 0 60px rgba(255, 179, 71, 0.06);
-      pointer-events: none;
-      opacity: 0.7;
-    }
-
-    .featured-inner {
-      position: relative;
-      z-index: 1;
-      max-width: 860px;
-      margin: 0 auto;
-      text-align: center;
-      padding: 6px 10px;
-    }
-
-    .featured-kicker {
-      color: #c9cedf;
-      font-size: 12px;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-
-    .featured-name {
-      font-size: clamp(1.75rem, 4vw, 3rem);
-      line-height: 1.04;
-      letter-spacing: 0.03em;
-      text-wrap: balance;
-      text-shadow:
-        0 0 20px rgba(255, 59, 48, 0.16),
-        0 0 30px rgba(255, 179, 71, 0.10);
-    }
-
-    .featured-meta {
-      margin-top: 18px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.10);
-      color: #edf0fb;
-      font-size: 13px;
-      backdrop-filter: blur(8px);
-    }
-
-    .pill strong {
-      color: #fff;
-      font-weight: 700;
-    }
-
-    .hint {
-      margin-top: 20px;
-      color: #aab0c5;
-      font-size: 12px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .featured-ornament {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      margin: 2px auto 16px;
-      background:
-        radial-gradient(circle at center, rgba(255,255,255,0.88) 0 10%, rgba(255,179,71,0.82) 10% 19%, rgba(255,59,48,0.18) 19% 40%, transparent 40%),
-        radial-gradient(circle at center, rgba(255,59,48,0.55), rgba(255,179,71,0.08) 68%, transparent 71%);
-      box-shadow:
-        0 0 0 10px rgba(255, 59, 48, 0.05),
-        0 0 28px rgba(255, 59, 48, 0.18),
-        0 0 54px rgba(255, 179, 71, 0.10);
-      opacity: 0.86;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin: 0 0 18px;
-    }
-
-    .section-head h2 {
-      font-size: clamp(1.45rem, 2.6vw, 2rem);
-      letter-spacing: 0.02em;
-    }
-
-    .count {
-      color: var(--muted);
-      font-size: 14px;
+    .car-stash {
+        opacity: 0.45;
     }
 
     .controls {
-      display: grid;
-      grid-template-columns: 2.2fr 1fr 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 20px;
+        grid-template-columns: 1fr 1fr;
     }
 
-    input,
-    select {
-      width: 100%;
-      padding: 13px 14px;
-      background: rgba(18, 18, 24, 0.92);
-      color: var(--text);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 14px;
-      outline: none;
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.02) inset;
+    .nav-arrow {
+        width: 58px;
+        height: 58px;
+        font-size: 42px;
     }
 
-    input::placeholder {
-      color: #8f95a8;
+    .nav-left {
+        left: 4px;
     }
 
-    input:focus,
-    select:focus {
-      border-color: rgba(255, 179, 71, 0.45);
-      box-shadow: 0 0 0 4px rgba(255, 179, 71, 0.08);
+    .nav-right {
+        right: 4px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .container {
+        width: min(100% - 20px, 1400px);
+    }
+
+    header h1 {
+        font-size: 42px;
+    }
+
+    .subtitle {
+        letter-spacing: 2px;
+    }
+
+    .hero {
+        min-height: 560px;
+    }
+
+    .car-stash {
+        opacity: 0.25;
+    }
+
+    .stage {
+        width: 90vw;
+        top: 110px;
+    }
+
+    .car-visual {
+        width: 300px;
+        height: 125px;
+    }
+
+    .car-visual::before {
+        width: 145px;
+        left: 77px;
+    }
+
+    .car-visual::after {
+        left: 32px;
+    }
+
+    .featured-info {
+        bottom: -5px;
+    }
+
+    .featured-name {
+        letter-spacing: 2px;
+        font-size: 25px;
+    }
+
+    .meta-box {
+        min-width: 130px;
+        padding: 9px 12px;
+    }
+
+    .controls {
+        grid-template-columns: 1fr;
     }
 
     .car-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 14px;
-    }
-
-    .car-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 18px;
-      padding: 18px 18px 16px;
-      background:
-        radial-gradient(circle at top left, rgba(255, 59, 48, 0.07), transparent 36%),
-        linear-gradient(180deg, rgba(22, 22, 28, 0.96), rgba(15, 15, 20, 0.96));
-      border: 1px solid rgba(255, 255, 255, 0.11);
-      box-shadow:
-        0 12px 30px rgba(0, 0, 0, 0.28),
-        0 0 0 1px rgba(255,255,255,0.02) inset;
-      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
-      min-height: 164px;
-    }
-
-    .car-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255, 179, 71, 0.36);
-      box-shadow:
-        0 14px 36px rgba(0, 0, 0, 0.36),
-        0 0 24px rgba(255, 59, 48, 0.08);
-    }
-
-    .car-card h3 {
-      font-size: 1.05rem;
-      line-height: 1.28;
-      letter-spacing: 0.02em;
-      margin-bottom: 12px;
-      text-shadow: 0 0 16px rgba(255, 255, 255, 0.08);
-    }
-
-    .car-info {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      color: #c5cad9;
-      font-size: 13px;
-    }
-
-    .car-info span strong {
-      color: #fff;
-    }
-
-    .loading,
-    .error,
-    .no-results {
-      text-align: center;
-      padding: 40px 18px;
-      color: var(--muted);
-    }
-
-    .error {
-      color: #ff8b82;
-    }
-
-    footer {
-      text-align: center;
-      padding: 24px 10px 6px;
-      color: #73788a;
-      font-size: 12px;
-    }
-
-    @media (max-width: 920px) {
-      .controls {
         grid-template-columns: 1fr 1fr;
-      }
     }
 
-    @media (max-width: 560px) {
-      .wrap {
-        width: min(100% - 18px, 1240px);
-        padding-top: 18px;
-      }
-
-      .controls {
-        grid-template-columns: 1fr;
-      }
-
-      .car-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .featured-card {
-        min-height: 250px;
-        padding: 22px 14px 18px;
-      }
-
-      .featured-card::after {
-        width: 190px;
-        height: 190px;
-      }
+    .nav-arrow {
+        top: 43%;
     }
-  </style>
+}
+
+@media (max-width: 420px) {
+
+    .car-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-arrow {
+        width: 50px;
+        height: 50px;
+        font-size: 35px;
+    }
+}
+</style>
 </head>
+
+
 <body>
-  <div class="wrap">
-    <header>
-      <div class="badge"><span class="badge-dot"></span> SHADSHOT COLLECTION</div>
-      <h1>Shadshot Collection</h1>
-      <p class="subtitle">My die-cast car collection</p>
-    </header>
 
-    <section class="featured-section">
-      <div class="featured-label">Today's Car</div>
-      <div class="featured-card" id="featuredCard">
-        <div class="loading">Loading collection...</div>
-      </div>
-    </section>
+<div class="container">
 
-    <section class="collection">
-      <div class="section-head">
-        <h2>My Collection</h2>
-        <div class="count" id="collectionCount">Loading...</div>
-      </div>
+<!-- =================================================
+     HEADER
+================================================= -->
 
-      <div class="controls">
-        <input type="text" id="search" placeholder="Search cars..." />
+<header>
+
+    <div class="arc-reactor"></div>
+
+    <div class="logo-small">
+        SHADSHOT
+    </div>
+
+    <h1>
+        <span>COLLECTION</span>
+    </h1>
+
+    <div class="subtitle">
+        MY DIE-CAST CAR COLLECTION
+    </div>
+
+</header>
+
+
+<!-- =================================================
+     HERO
+================================================= -->
+
+<section class="hero">
+
+    <!-- Background showroom -->
+
+    <div class="car-stash">
+
+        <div class="shelf-column left">
+
+            <div class="shelf">
+                <div class="mini-car mini-green"></div>
+            </div>
+
+            <div class="shelf">
+                <div class="mini-car mini-blue"></div>
+            </div>
+
+            <div class="shelf">
+                <div class="mini-car mini-red"></div>
+            </div>
+
+            <div class="shelf">
+                <div class="mini-car mini-yellow"></div>
+            </div>
+
+        </div>
+
+
+        <div class="shelf-column right">
+
+            <div class="shelf">
+                <div class="mini-car mini-orange"></div>
+            </div>
+
+            <div class="shelf">
+                <div class="mini-car mini-white"></div>
+            </div>
+
+            <div class="shelf">
+                <div class="mini-car mini-red"></div>
+            </div>
+
+            <div class="shelf">
+                <div class="mini-car mini-blue"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Left navigation -->
+
+    <button
+        class="nav-arrow nav-left"
+        id="previousCar"
+        aria-label="Previous car"
+    >
+        <span class="arrow">‹</span>
+    </button>
+
+
+    <!-- Right navigation -->
+
+    <button
+        class="nav-arrow nav-right"
+        id="nextCar"
+        aria-label="Next car"
+    >
+        <span class="arrow">›</span>
+    </button>
+
+
+    <!-- Central stage -->
+
+    <div class="stage">
+
+        <div class="stage-floor"></div>
+
+        <div class="stage-ring"></div>
+
+        <div
+            class="featured-car"
+            id="featuredCar"
+        >
+            <div class="loading">
+                Loading...
+            </div>
+        </div>
+
+        <div class="featured-info">
+
+            <div
+                class="featured-name"
+                id="featuredName"
+            >
+                Loading...
+            </div>
+
+            <div
+                class="featured-meta"
+                id="featuredMeta"
+            ></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =================================================
+     COLLECTION
+================================================= -->
+
+<section class="collection">
+
+    <div class="collection-title">
+
+        <h2>
+            My Collection
+        </h2>
+
+        <div class="collection-count">
+            <strong id="collectionCount">0</strong>
+            CARS
+        </div>
+
+    </div>
+
+
+    <div class="controls">
+
+        <input
+            id="search"
+            type="text"
+            placeholder="Search cars..."
+        >
+
         <select id="manufacturerFilter">
-          <option value="">All Manufacturers</option>
+
+            <option value="">
+                All Manufacturers
+            </option>
+
         </select>
+
+
         <select id="brandFilter">
-          <option value="">All Car Brands</option>
+
+            <option value="">
+                All Car Brands
+            </option>
+
         </select>
+
+
         <select id="colorFilter">
-          <option value="">All Colors</option>
+
+            <option value="">
+                All Colors
+            </option>
+
         </select>
-      </div>
 
-      <div id="carGrid" class="car-grid">
-        <div class="loading">Loading cars...</div>
-      </div>
-    </section>
+    </div>
 
-    <footer>Use ← / → to change the featured car</footer>
-  </div>
 
-  <script>
-    let cars = [];
-    let displayedCars = [];
-    let featuredOrder = [];
-    let featuredDeckIndex = 0;
+    <div
+        class="car-grid"
+        id="carGrid"
+    >
+        <div class="loading">
+            Loading collection...
+        </div>
+    </div>
 
-    const STORAGE_ORDER = "shadshotFeaturedOrder";
-    const STORAGE_NEXT_INDEX = "shadshotFeaturedNextIndex";
+</section>
 
-    const csvPath = "Collection.csv";
+</div>
 
-    async function loadCSV() {
-      try {
-        const response = await fetch(csvPath, { cache: "no-store" });
-        if (!response.ok) throw new Error("Could not load Collection.csv");
 
-        const csvText = await response.text();
-        cars = parseCSV(csvText);
+<script>
 
-        if (!cars.length) throw new Error("No cars found in CSV");
+/* =====================================================
+   VARIABLES
+===================================================== */
 
-        displayedCars = [...cars];
+let cars = [];
+
+let displayedCars = [];
+
+let currentCarIndex = 0;
+
+
+/* =====================================================
+   LOAD CSV
+===================================================== */
+
+async function loadCSV() {
+
+    try {
+
+        const response =
+            await fetch(
+                "Collection.csv",
+                {
+                    cache: "no-store"
+                }
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Collection.csv could not be loaded."
+            );
+
+        }
+
+
+        const text =
+            await response.text();
+
+
+        cars =
+            parseCSV(text);
+
+
+        if (!cars.length) {
+
+            throw new Error(
+                "No cars found."
+            );
+
+        }
+
+
+        displayedCars =
+            [...cars];
+
 
         setupFilters();
-        ensureFeaturedOrder();
-        initFeaturedFromStorage();
+
+        setupNavigation();
+
+        chooseInitialCar();
+
         renderFeaturedCar();
-        renderCars();
-      } catch (error) {
+
+        renderCollection();
+
+
+    } catch (error) {
+
         console.error(error);
 
-        document.getElementById("featuredCard").innerHTML = `
-          <div class="error">
-            Could not load your collection.<br><br>
-            Make sure <strong>Collection.csv</strong> is in the same folder as <strong>index.html</strong>.
-          </div>
+
+        document.getElementById(
+            "featuredName"
+        ).textContent =
+            "COLLECTION ERROR";
+
+
+        document.getElementById(
+            "carGrid"
+        ).innerHTML = `
+
+            <div class="error">
+
+                Could not load
+                <strong>Collection.csv</strong>.
+
+            </div>
+
         `;
 
-        document.getElementById("carGrid").innerHTML = `
-          <div class="error">Could not load Collection.csv.</div>
-        `;
-      }
     }
 
-    function parseCSV(text) {
-      const rows = [];
-      let row = [];
-      let value = "";
-      let insideQuotes = false;
+}
 
-      for (let i = 0; i < text.length; i++) {
-        const char = text[i];
-        const nextChar = text[i + 1];
 
-        if (char === '"' && insideQuotes && nextChar === '"') {
-          value += '"';
-          i++;
-        } else if (char === '"') {
-          insideQuotes = !insideQuotes;
-        } else if (char === "," && !insideQuotes) {
-          row.push(value.trim());
-          value = "";
-        } else if ((char === "\n" || char === "\r") && !insideQuotes) {
-          if (char === "\r" && nextChar === "\n") i++;
-          row.push(value.trim());
-          value = "";
-          if (row.some(cell => cell !== "")) rows.push(row);
-          row = [];
-        } else {
-          value += char;
+/* =====================================================
+   CSV PARSER
+===================================================== */
+
+function parseCSV(text) {
+
+    const rows = [];
+
+    let row = [];
+
+    let value = "";
+
+    let insideQuotes = false;
+
+
+    for (
+        let i = 0;
+        i < text.length;
+        i++
+    ) {
+
+        const char =
+            text[i];
+
+        const next =
+            text[i + 1];
+
+
+        if (
+            char === '"' &&
+            insideQuotes &&
+            next === '"'
+        ) {
+
+            value += '"';
+
+            i++;
+
         }
-      }
 
-      if (value !== "" || row.length > 0) {
-        row.push(value.trim());
-        if (row.some(cell => cell !== "")) rows.push(row);
-      }
+        else if (
+            char === '"'
+        ) {
 
-      if (rows.length < 2) return [];
+            insideQuotes =
+                !insideQuotes;
 
-      const headers = rows[0].map(h =>
-        h.replace(/^\uFEFF/, "").trim().toLowerCase()
-      );
-
-      return rows.slice(1).map(row => {
-        const data = {};
-        headers.forEach((header, index) => {
-          data[header] = row[index] || "";
-        });
-
-        return {
-          name: data["car name"] || data["cars"] || "",
-          manufacturer: data["manufacturer"] || "",
-          color: data["color"] || "",
-          carBrand: data["car brand"] || data["carbrand"] || "",
-        };
-      }).filter(car => car.name !== "");
-    }
-
-    function ensureFeaturedOrder() {
-      const saved = localStorage.getItem(STORAGE_ORDER);
-      let order = [];
-
-      if (saved) {
-        try {
-          order = JSON.parse(saved);
-        } catch {
-          order = [];
         }
-      }
 
-      const valid =
-        Array.isArray(order) &&
-        order.length === cars.length &&
-        order.every(n => Number.isInteger(n) && n >= 0 && n < cars.length);
+        else if (
+            char === "," &&
+            !insideQuotes
+        ) {
 
-      if (!valid) {
-        featuredOrder = shuffle([...Array(cars.length).keys()]);
-        localStorage.setItem(STORAGE_ORDER, JSON.stringify(featuredOrder));
-        localStorage.setItem(STORAGE_NEXT_INDEX, "0");
-      } else {
-        featuredOrder = order;
-      }
+            row.push(
+                value.trim()
+            );
+
+            value = "";
+
+        }
+
+        else if (
+            (char === "\n" ||
+             char === "\r") &&
+            !insideQuotes
+        ) {
+
+            if (
+                char === "\r" &&
+                next === "\n"
+            ) {
+
+                i++;
+
+            }
+
+
+            row.push(
+                value.trim()
+            );
+
+            value = "";
+
+
+            if (
+                row.some(
+                    cell => cell !== ""
+                )
+            ) {
+
+                rows.push(row);
+
+            }
+
+
+            row = [];
+
+        }
+
+        else {
+
+            value += char;
+
+        }
+
     }
 
-    function initFeaturedFromStorage() {
-      const savedNext = parseInt(localStorage.getItem(STORAGE_NEXT_INDEX) || "0", 10);
-      featuredDeckIndex = Number.isFinite(savedNext) ? savedNext : 0;
-      featuredDeckIndex = clampIndex(featuredDeckIndex);
+
+    if (
+        value !== "" ||
+        row.length > 0
+    ) {
+
+        row.push(
+            value.trim()
+        );
+
+
+        if (
+            row.some(
+                cell => cell !== ""
+            )
+        ) {
+
+            rows.push(row);
+
+        }
+
     }
 
-    function clampIndex(index) {
-      if (!featuredOrder.length) return 0;
-      return ((index % featuredOrder.length) + featuredOrder.length) % featuredOrder.length;
+
+    if (rows.length < 2) {
+
+        return [];
+
     }
 
-    function shuffle(arr) {
-      for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-      return arr;
+
+    const headers =
+        rows[0].map(
+            header =>
+                header
+                    .replace(
+                        /^\uFEFF/,
+                        ""
+                    )
+                    .trim()
+                    .toLowerCase()
+        );
+
+
+    return rows
+        .slice(1)
+        .map(row => {
+
+            const data = {};
+
+
+            headers.forEach(
+                (header, index) => {
+
+                    data[header] =
+                        row[index] || "";
+
+                }
+            );
+
+
+            return {
+
+                name:
+                    data["car name"] ||
+                    data["cars"] ||
+                    "",
+
+
+                manufacturer:
+                    data["manufacturer"] ||
+                    "",
+
+
+                color:
+                    data["color"] ||
+                    "",
+
+
+                carBrand:
+                    data["car brand"] ||
+                    ""
+
+            };
+
+        })
+        .filter(
+            car => car.name !== ""
+        );
+
+}
+
+
+/* =====================================================
+   FEATURED CAR
+===================================================== */
+
+function chooseInitialCar() {
+
+    const saved =
+        localStorage.getItem(
+            "shadshotCurrentCar"
+        );
+
+
+    if (saved !== null) {
+
+        const savedIndex =
+            parseInt(
+                saved,
+                10
+            );
+
+
+        if (
+            savedIndex >= 0 &&
+            savedIndex < cars.length
+        ) {
+
+            currentCarIndex =
+                savedIndex;
+
+            return;
+
+        }
+
     }
 
-    function currentFeaturedCar() {
-      if (!cars.length || !featuredOrder.length) return null;
-      const realIndex = featuredOrder[featuredDeckIndex];
-      return cars[realIndex];
+
+    currentCarIndex =
+        Math.floor(
+            Math.random() *
+            cars.length
+        );
+
+
+    saveCurrentCar();
+
+}
+
+
+function saveCurrentCar() {
+
+    localStorage.setItem(
+        "shadshotCurrentCar",
+        currentCarIndex
+    );
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+function nextCar() {
+
+    if (!cars.length) return;
+
+
+    currentCarIndex++;
+
+    if (
+        currentCarIndex >=
+        cars.length
+    ) {
+
+        currentCarIndex = 0;
+
     }
 
-    function moveFeatured(step) {
-      if (!cars.length || !featuredOrder.length) return;
 
-      featuredDeckIndex = clampIndex(featuredDeckIndex + step);
-      const nextIndex = clampIndex(featuredDeckIndex + 1);
+    saveCurrentCar();
 
-      localStorage.setItem(STORAGE_NEXT_INDEX, String(nextIndex));
-      renderFeaturedCar();
+    renderFeaturedCar();
+
+}
+
+
+function previousCar() {
+
+    if (!cars.length) return;
+
+
+    currentCarIndex--;
+
+    if (
+        currentCarIndex < 0
+    ) {
+
+        currentCarIndex =
+            cars.length - 1;
+
     }
 
-    function renderFeaturedCar() {
-      const featuredCar = currentFeaturedCar();
-      if (!featuredCar) return;
 
-      document.getElementById("featuredCard").innerHTML = `
-        <div class="featured-inner">
-          <div class="featured-ornament" aria-hidden="true"></div>
-          <div class="featured-kicker">Featured Collection Car</div>
-          <div class="featured-name">${escapeHTML(featuredCar.name)}</div>
-          <div class="featured-meta">
-            ${featuredCar.manufacturer ? `<div class="pill"><strong>Manufacturer:</strong> ${escapeHTML(featuredCar.manufacturer)}</div>` : ""}
-            ${featuredCar.carBrand ? `<div class="pill"><strong>Brand:</strong> ${escapeHTML(featuredCar.carBrand)}</div>` : ""}
-            ${featuredCar.color ? `<div class="pill"><strong>Color:</strong> ${escapeHTML(featuredCar.color)}</div>` : ""}
-          </div>
-          <div class="hint">Use ← / → to change featured car</div>
+    saveCurrentCar();
+
+    renderFeaturedCar();
+
+}
+
+
+function setupNavigation() {
+
+    document
+        .getElementById(
+            "nextCar"
+        )
+        .addEventListener(
+            "click",
+            nextCar
+        );
+
+
+    document
+        .getElementById(
+            "previousCar"
+        )
+        .addEventListener(
+            "click",
+            previousCar
+        );
+
+}
+
+
+/* =====================================================
+   KEYBOARD ARROWS
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        const tag =
+            document.activeElement
+                ?.tagName
+                ?.toLowerCase();
+
+
+        if (
+            tag === "input" ||
+            tag === "select" ||
+            tag === "textarea"
+        ) {
+
+            return;
+
+        }
+
+
+        if (
+            event.key ===
+            "ArrowRight"
+        ) {
+
+            event.preventDefault();
+
+            nextCar();
+
+        }
+
+
+        if (
+            event.key ===
+            "ArrowLeft"
+        ) {
+
+            event.preventDefault();
+
+            previousCar();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   FEATURED CAR DISPLAY
+===================================================== */
+
+function renderFeaturedCar() {
+
+    const car =
+        cars[currentCarIndex];
+
+
+    if (!car) return;
+
+
+    const featured =
+        document.getElementById(
+            "featuredCar"
+        );
+
+
+    featured.innerHTML = `
+
+        <div
+            class="car-visual"
+            title="${escapeHTML(
+                car.name
+            )}"
+        ></div>
+
+    `;
+
+
+    document.getElementById(
+        "featuredName"
+    ).textContent =
+        car.name;
+
+
+    document.getElementById(
+        "featuredMeta"
+    ).innerHTML = `
+
+        ${createMeta(
+            "MANUFACTURER",
+            car.manufacturer
+        )}
+
+        ${createMeta(
+            "BRAND",
+            car.carBrand
+        )}
+
+        ${createMeta(
+            "COLOR",
+            car.color
+        )}
+
+    `;
+
+
+    /*
+       Restart animation
+    */
+
+    featured.style.animation =
+        "none";
+
+
+    void featured.offsetWidth;
+
+
+    featured.style.animation =
+        "carAppear 0.35s ease";
+
+}
+
+
+/* =====================================================
+   META BOX
+===================================================== */
+
+function createMeta(
+    label,
+    value
+) {
+
+    if (!value) return "";
+
+
+    return `
+
+        <div class="meta-box">
+
+            <span class="meta-label">
+                ${label}
+            </span>
+
+            <span class="meta-value">
+                ${escapeHTML(value)}
+            </span>
+
         </div>
-      `;
-    }
 
-    function setupFilters() {
-      const manufacturers = [...new Set(cars.map(car => car.manufacturer).filter(Boolean))].sort();
-      const brands = [...new Set(cars.map(car => car.carBrand).filter(Boolean))].sort();
-      const colors = [...new Set(cars.map(car => car.color).filter(Boolean))].sort();
+    `;
 
-      fillSelect("manufacturerFilter", manufacturers);
-      fillSelect("brandFilter", brands);
-      fillSelect("colorFilter", colors);
+}
 
-      document.getElementById("search").addEventListener("input", applyFilters);
-      document.getElementById("manufacturerFilter").addEventListener("change", applyFilters);
-      document.getElementById("brandFilter").addEventListener("change", applyFilters);
-      document.getElementById("colorFilter").addEventListener("change", applyFilters);
-    }
 
-    function fillSelect(id, values) {
-      const select = document.getElementById(id);
-      values.forEach(value => {
-        const option = document.createElement("option");
-        option.value = value;
-        option.textContent = value;
-        select.appendChild(option);
-      });
-    }
+/* =====================================================
+   FILTERS
+===================================================== */
 
-    function applyFilters() {
-      const search = document.getElementById("search").value.toLowerCase().trim();
-      const manufacturer = document.getElementById("manufacturerFilter").value;
-      const brand = document.getElementById("brandFilter").value;
-      const color = document.getElementById("colorFilter").value;
+function setupFilters() {
 
-      displayedCars = cars.filter(car => {
-        const matchesSearch =
-          !search ||
-          car.name.toLowerCase().includes(search) ||
-          car.manufacturer.toLowerCase().includes(search) ||
-          car.carBrand.toLowerCase().includes(search) ||
-          car.color.toLowerCase().includes(search);
+    const manufacturers =
+        uniqueValues(
+            cars.map(
+                car =>
+                    car.manufacturer
+            )
+        );
 
-        const matchesManufacturer = !manufacturer || car.manufacturer === manufacturer;
-        const matchesBrand = !brand || car.carBrand === brand;
-        const matchesColor = !color || car.color === color;
 
-        return matchesSearch && matchesManufacturer && matchesBrand && matchesColor;
-      });
+    const brands =
+        uniqueValues(
+            cars.map(
+                car =>
+                    car.carBrand
+            )
+        );
 
-      renderCars();
-    }
 
-    function renderCars() {
-      const grid = document.getElementById("carGrid");
-      document.getElementById("collectionCount").textContent = `${displayedCars.length} cars`;
+    const colors =
+        uniqueValues(
+            cars.map(
+                car =>
+                    car.color
+            )
+        );
 
-      if (displayedCars.length === 0) {
-        grid.innerHTML = `<div class="no-results">No cars found.</div>`;
+
+    fillSelect(
+        "manufacturerFilter",
+        manufacturers
+    );
+
+
+    fillSelect(
+        "brandFilter",
+        brands
+    );
+
+
+    fillSelect(
+        "colorFilter",
+        colors
+    );
+
+
+    document
+        .getElementById("search")
+        .addEventListener(
+            "input",
+            applyFilters
+        );
+
+
+    document
+        .getElementById(
+            "manufacturerFilter"
+        )
+        .addEventListener(
+            "change",
+            applyFilters
+        );
+
+
+    document
+        .getElementById(
+            "brandFilter"
+        )
+        .addEventListener(
+            "change",
+            applyFilters
+        );
+
+
+    document
+        .getElementById(
+            "colorFilter"
+        )
+        .addEventListener(
+            "change",
+            applyFilters
+        );
+
+}
+
+
+function uniqueValues(values) {
+
+    return [
+        ...new Set(
+            values
+                .filter(Boolean)
+        )
+    ].sort();
+
+}
+
+
+function fillSelect(
+    id,
+    values
+) {
+
+    const select =
+        document.getElementById(id);
+
+
+    values.forEach(
+        value => {
+
+            const option =
+                document.createElement(
+                    "option"
+                );
+
+
+            option.value =
+                value;
+
+
+            option.textContent =
+                value;
+
+
+            select.appendChild(
+                option
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   FILTER COLLECTION
+===================================================== */
+
+function applyFilters() {
+
+    const search =
+        document.getElementById(
+            "search"
+        )
+        .value
+        .toLowerCase()
+        .trim();
+
+
+    const manufacturer =
+        document.getElementById(
+            "manufacturerFilter"
+        ).value;
+
+
+    const brand =
+        document.getElementById(
+            "brandFilter"
+        ).value;
+
+
+    const color =
+        document.getElementById(
+            "colorFilter"
+        ).value;
+
+
+    displayedCars =
+        cars.filter(
+            car => {
+
+                const searchMatch =
+                    !search ||
+                    car.name
+                        .toLowerCase()
+                        .includes(search) ||
+                    car.manufacturer
+                        .toLowerCase()
+                        .includes(search) ||
+                    car.carBrand
+                        .toLowerCase()
+                        .includes(search);
+
+
+                const manufacturerMatch =
+                    !manufacturer ||
+                    car.manufacturer ===
+                        manufacturer;
+
+
+                const brandMatch =
+                    !brand ||
+                    car.carBrand ===
+                        brand;
+
+
+                const colorMatch =
+                    !color ||
+                    car.color ===
+                        color;
+
+
+                return (
+                    searchMatch &&
+                    manufacturerMatch &&
+                    brandMatch &&
+                    colorMatch
+                );
+
+            }
+        );
+
+
+    renderCollection();
+
+}
+
+
+/* =====================================================
+   COLLECTION GRID
+===================================================== */
+
+function renderCollection() {
+
+    const grid =
+        document.getElementById(
+            "carGrid"
+        );
+
+
+    document.getElementById(
+        "collectionCount"
+    ).textContent =
+        displayedCars.length;
+
+
+    if (!displayedCars.length) {
+
+        grid.innerHTML = `
+
+            <div class="no-results">
+
+                No cars found.
+
+            </div>
+
+        `;
+
         return;
-      }
 
-      grid.innerHTML = displayedCars.map(car => `
-        <div class="car-card">
-          <h3>${escapeHTML(car.name)}</h3>
-          <div class="car-info">
-            ${car.manufacturer ? `<span><strong>Manufacturer:</strong> ${escapeHTML(car.manufacturer)}</span>` : ""}
-            ${car.carBrand ? `<span><strong>Brand:</strong> ${escapeHTML(car.carBrand)}</span>` : ""}
-            ${car.color ? `<span><strong>Color:</strong> ${escapeHTML(car.color)}</span>` : ""}
-          </div>
-        </div>
-      `).join("");
     }
 
-    function escapeHTML(value) {
-      return String(value)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-    }
 
-    document.addEventListener("keydown", (e) => {
-      const tag = document.activeElement?.tagName?.toLowerCase();
-      const typing =
-        tag === "input" ||
-        tag === "select" ||
-        tag === "textarea" ||
-        document.activeElement?.isContentEditable;
+    grid.innerHTML =
+        displayedCars
+            .map(
+                car => `
 
-      if (typing) return;
+                <div class="car-card">
 
-      if (e.key === "ArrowRight") {
-        e.preventDefault();
-        moveFeatured(1);
-      }
+                    <h3>
+                        ${escapeHTML(
+                            car.name
+                        )}
+                    </h3>
 
-      if (e.key === "ArrowLeft") {
-        e.preventDefault();
-        moveFeatured(-1);
-      }
-    });
 
-    loadCSV();
-  </script>
+                    <div class="car-info">
+
+                        ${
+                            car.manufacturer
+                            ? `
+                                <span>
+                                    <strong>
+                                        ${escapeHTML(
+                                            car.manufacturer
+                                        )}
+                                    </strong>
+                                </span>
+                              `
+                            : ""
+                        }
+
+
+                        ${
+                            car.carBrand
+                            ? `
+                                <span>
+                                    ${escapeHTML(
+                                        car.carBrand
+                                    )}
+                                </span>
+                              `
+                            : ""
+                        }
+
+
+                        ${
+                            car.color
+                            ? `
+                                <span>
+                                    <span
+                                        class="color-dot"
+                                    ></span>
+
+                                    ${escapeHTML(
+                                        car.color
+                                    )}
+                                </span>
+                              `
+                            : ""
+                        }
+
+                    </div>
+
+                </div>
+
+            `
+            )
+            .join("");
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(value) {
+
+    return String(value)
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+loadCSV();
+
+</script>
+
 </body>
 </html>
