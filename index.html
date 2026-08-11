@@ -7,6 +7,7 @@
 <title>Shadshot Collection</title>
 
 <style>
+
 :root {
     --bg: #050506;
     --red: #ff2418;
@@ -30,7 +31,9 @@ html {
 
 body {
     min-height: 100vh;
+
     color: var(--text);
+
     font-family:
         -apple-system,
         BlinkMacSystemFont,
@@ -55,10 +58,6 @@ body {
     overflow-x: hidden;
 }
 
-/* --------------------------------------------------
-   GENERAL
--------------------------------------------------- */
-
 .container {
     width: min(1400px, calc(100% - 42px));
     margin: auto;
@@ -71,21 +70,27 @@ select {
 }
 
 
-/* --------------------------------------------------
+/* =====================================================
    HEADER
--------------------------------------------------- */
+===================================================== */
 
 header {
     text-align: center;
-    padding: 28px 20px 10px;
+
+    padding:
+        28px 20px 10px;
+
     position: relative;
+
     z-index: 5;
 }
 
 .arc-reactor {
     width: 48px;
     height: 48px;
-    margin: 0 auto 14px;
+
+    margin:
+        0 auto 14px;
 
     border-radius: 50%;
 
@@ -103,21 +108,30 @@ header {
         0 0 12px #3bdfff,
         0 0 28px rgba(0, 180, 255, 0.65);
 
-    border: 1px solid rgba(255,255,255,0.3);
+    border:
+        1px solid rgba(255,255,255,0.3);
 }
 
 .logo-small {
     color: var(--gold);
+
     font-size: 13px;
+
     font-weight: 700;
+
     letter-spacing: 8px;
+
     margin-bottom: 4px;
 }
 
 header h1 {
-    font-size: clamp(42px, 7vw, 82px);
+    font-size:
+        clamp(42px, 7vw, 82px);
+
     line-height: 0.95;
+
     font-weight: 900;
+
     letter-spacing: 2px;
 
     color: #f7f7f7;
@@ -137,33 +151,41 @@ header h1 span {
 
 .subtitle {
     margin-top: 14px;
+
     color: #b9b2a9;
+
     font-size: 14px;
+
     letter-spacing: 5px;
+
     text-transform: uppercase;
 }
 
 
-/* --------------------------------------------------
-   SHOWROOM / HERO
--------------------------------------------------- */
+/* =====================================================
+   HERO / SHOWROOM
+===================================================== */
 
 .hero {
     position: relative;
+
     min-height: 600px;
+
     margin-top: 12px;
+
     overflow: hidden;
 }
 
-
-/* glowing horizontal line */
-
 .hero::before {
     content: "";
+
     position: absolute;
+
     left: 12%;
     right: 12%;
+
     top: 82px;
+
     height: 1px;
 
     background:
@@ -176,19 +198,23 @@ header h1 span {
             transparent
         );
 
-    box-shadow: 0 0 15px rgba(255, 30, 20, 0.7);
+    box-shadow:
+        0 0 15px rgba(255, 30, 20, 0.7);
 }
 
 
-/* --------------------------------------------------
+/* =====================================================
    BACKGROUND CAR STASH
--------------------------------------------------- */
+===================================================== */
 
 .car-stash {
     position: absolute;
-    inset: 70px 0 80px;
+
+    inset:
+        70px 0 80px;
 
     display: flex;
+
     justify-content: space-between;
 
     pointer-events: none;
@@ -200,8 +226,11 @@ header h1 span {
     width: 28%;
 
     display: flex;
+
     flex-direction: column;
+
     justify-content: space-around;
+
     gap: 18px;
 }
 
@@ -212,9 +241,6 @@ header h1 span {
 .shelf-column.right {
     align-items: flex-end;
 }
-
-
-/* individual background shelf */
 
 .shelf {
     width: 100%;
@@ -237,9 +263,6 @@ header h1 span {
         inset 0 -5px 20px rgba(0,0,0,0.4);
 }
 
-
-/* little background cars */
-
 .mini-car {
     position: absolute;
 
@@ -248,7 +271,8 @@ header h1 span {
 
     bottom: 18px;
 
-    border-radius: 25px 35px 8px 8px;
+    border-radius:
+        25px 35px 8px 8px;
 
     opacity: 0.42;
 
@@ -276,7 +300,8 @@ header h1 span {
     top: -11px;
     left: 20px;
 
-    border-radius: 24px 24px 2px 2px;
+    border-radius:
+        24px 24px 2px 2px;
 
     background:
         linear-gradient(
@@ -306,33 +331,63 @@ header h1 span {
 }
 
 .mini-red {
-    background: linear-gradient(150deg, #b6251d, #3b0907);
+    background:
+        linear-gradient(
+            150deg,
+            #b6251d,
+            #3b0907
+        );
 }
 
 .mini-blue {
-    background: linear-gradient(150deg, #3570a7, #101d32);
+    background:
+        linear-gradient(
+            150deg,
+            #3570a7,
+            #101d32
+        );
 }
 
 .mini-yellow {
-    background: linear-gradient(150deg, #d29b2a, #4b3108);
+    background:
+        linear-gradient(
+            150deg,
+            #d29b2a,
+            #4b3108
+        );
 }
 
 .mini-green {
-    background: linear-gradient(150deg, #477d52, #132418);
+    background:
+        linear-gradient(
+            150deg,
+            #477d52,
+            #132418
+        );
 }
 
 .mini-white {
-    background: linear-gradient(150deg, #ddd, #555);
+    background:
+        linear-gradient(
+            150deg,
+            #ddd,
+            #555
+        );
 }
 
 .mini-orange {
-    background: linear-gradient(150deg, #d86921, #4b1c08);
+    background:
+        linear-gradient(
+            150deg,
+            #d86921,
+            #4b1c08
+        );
 }
 
 
-/* --------------------------------------------------
+/* =====================================================
    CENTRAL STAGE
--------------------------------------------------- */
+===================================================== */
 
 .stage {
     position: absolute;
@@ -342,19 +397,21 @@ header h1 span {
 
     transform: translateX(-50%);
 
-    width: min(720px, 58vw);
+    width:
+        min(720px, 58vw);
+
     height: 390px;
 
     display: flex;
+
     flex-direction: column;
+
     justify-content: flex-end;
+
     align-items: center;
 
     z-index: 3;
 }
-
-
-/* glowing floor */
 
 .stage-floor {
     position: absolute;
@@ -396,20 +453,28 @@ header h1 span {
         0 0 45px rgba(255, 38, 22, 0.25),
         inset 0 0 25px rgba(255, 38, 22, 0.15);
 
-    transform: perspective(250px) rotateX(58deg);
+    transform:
+        perspective(250px)
+        rotateX(58deg);
 }
 
 
-/* central car */
+/* =====================================================
+   REAL CAR IMAGE
+===================================================== */
 
 .featured-car {
     position: relative;
 
-    width: min(480px, 70vw);
-    min-height: 190px;
+    width:
+        min(560px, 75vw);
+
+    min-height: 220px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     z-index: 4;
@@ -418,107 +483,83 @@ header h1 span {
         carAppear 0.35s ease;
 }
 
+.featured-image {
+    display: block;
 
-/*
-   This is the visual placeholder for the selected car.
+    width:
+        min(520px, 72vw);
 
-   When we add actual car images later,
-   the image will sit here.
-*/
+    max-height: 260px;
 
-.car-visual {
-    width: 390px;
-    height: 155px;
+    object-fit: contain;
 
-    position: relative;
+    object-position: center;
 
-    border-radius:
-        55% 45% 25% 20% /
-        70% 70% 30% 30%;
-
-    background:
-        linear-gradient(
-            160deg,
-            #d8d8d8,
-            #666 45%,
-            #1c1c1c 75%
+    filter:
+        drop-shadow(
+            0 30px 22px rgba(0,0,0,0.75)
+        )
+        drop-shadow(
+            0 0 25px rgba(255,50,30,0.18)
         );
 
-    box-shadow:
-        0 30px 35px rgba(0,0,0,0.7),
-        0 0 30px rgba(255, 50, 30, 0.15);
-
-    transform:
-        perspective(500px)
-        rotateX(2deg)
-        rotateY(-7deg);
+    animation:
+        imageFloat 4s ease-in-out infinite;
 }
 
-.car-visual::before {
-    content: "";
+.photo-missing {
+    width: 350px;
+    height: 180px;
 
-    position: absolute;
+    display: flex;
 
-    width: 190px;
-    height: 75px;
+    align-items: center;
 
-    left: 93px;
-    top: -38px;
+    justify-content: center;
 
-    border-radius:
-        65px 65px 12px 12px;
+    text-align: center;
 
-    background:
-        linear-gradient(
-            145deg,
-            #777,
-            #151515
-        );
+    border:
+        1px solid rgba(255,50,30,0.3);
 
-    border: 2px solid rgba(255,255,255,0.13);
-}
-
-.car-visual::after {
-    content: "";
-
-    position: absolute;
-
-    width: 47px;
-    height: 47px;
-
-    border-radius: 50%;
-
-    left: 42px;
-    bottom: -22px;
+    border-radius: 15px;
 
     background:
         radial-gradient(
-            circle,
-            #777 0 18%,
-            #111 20% 58%,
-            #333 60% 67%,
-            #070707 68%
+            ellipse,
+            rgba(255,35,20,0.12),
+            rgba(10,10,10,0.8)
         );
 
+    color: var(--muted);
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
     box-shadow:
-        258px 0 0 -0px #111,
-        258px 0 0 0 #333;
+        0 0 30px rgba(255,30,20,0.08);
 }
 
 
-/* --------------------------------------------------
+/* =====================================================
    FEATURED INFO
--------------------------------------------------- */
+===================================================== */
 
 .featured-info {
     position: absolute;
 
     left: 50%;
+
     bottom: -15px;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
-    width: min(700px, 90vw);
+    width:
+        min(700px, 90vw);
 
     text-align: center;
 
@@ -526,7 +567,8 @@ header h1 span {
 }
 
 .featured-name {
-    font-size: clamp(25px, 4vw, 45px);
+    font-size:
+        clamp(25px, 4vw, 45px);
 
     font-weight: 800;
 
@@ -536,14 +578,16 @@ header h1 span {
 
     text-shadow:
         0 0 12px rgba(255,255,255,0.3),
-        0 0 25px rgba(255, 40, 25, 0.2);
+        0 0 25px rgba(255,40,25,0.2);
 }
 
 .featured-meta {
     margin-top: 17px;
 
     display: flex;
+
     justify-content: center;
+
     gap: 12px;
 
     flex-wrap: wrap;
@@ -552,22 +596,23 @@ header h1 span {
 .meta-box {
     min-width: 160px;
 
-    padding: 12px 20px;
+    padding:
+        12px 20px;
 
     border-radius: 10px;
 
     background:
         linear-gradient(
             180deg,
-            rgba(55, 12, 9, 0.8),
-            rgba(25, 7, 5, 0.95)
+            rgba(55,12,9,0.8),
+            rgba(25,7,5,0.95)
         );
 
     border:
-        1px solid rgba(255, 50, 30, 0.22);
+        1px solid rgba(255,50,30,0.22);
 
     box-shadow:
-        inset 0 0 18px rgba(255, 30, 20, 0.04);
+        inset 0 0 18px rgba(255,30,20,0.04);
 }
 
 .meta-label {
@@ -591,16 +636,17 @@ header h1 span {
 }
 
 
-/* --------------------------------------------------
+/* =====================================================
    NAVIGATION ARROWS
--------------------------------------------------- */
+===================================================== */
 
 .nav-arrow {
     position: absolute;
 
     top: 48%;
 
-    transform: translateY(-50%);
+    transform:
+        translateY(-50%);
 
     width: 70px;
     height: 70px;
@@ -608,12 +654,12 @@ header h1 span {
     border-radius: 50%;
 
     border:
-        2px solid rgba(255, 50, 35, 0.85);
+        2px solid rgba(255,50,35,0.85);
 
     background:
         radial-gradient(
             circle,
-            rgba(255, 45, 25, 0.14),
+            rgba(255,45,25,0.14),
             rgba(0,0,0,0.55)
         );
 
@@ -633,8 +679,8 @@ header h1 span {
         background 0.18s ease;
 
     box-shadow:
-        0 0 15px rgba(255, 36, 24, 0.35),
-        inset 0 0 18px rgba(255, 36, 24, 0.08);
+        0 0 15px rgba(255,36,24,0.35),
+        inset 0 0 18px rgba(255,36,24,0.08);
 }
 
 .nav-arrow:hover {
@@ -645,12 +691,12 @@ header h1 span {
     background:
         radial-gradient(
             circle,
-            rgba(255, 45, 25, 0.3),
+            rgba(255,45,25,0.3),
             rgba(0,0,0,0.5)
         );
 
     box-shadow:
-        0 0 25px rgba(255, 36, 24, 0.7);
+        0 0 25px rgba(255,36,24,0.7);
 }
 
 .nav-left {
@@ -663,13 +709,14 @@ header h1 span {
 
 .arrow {
     position: relative;
+
     top: -3px;
 }
 
 
-/* --------------------------------------------------
-   COLLECTION SECTION
--------------------------------------------------- */
+/* =====================================================
+   COLLECTION
+===================================================== */
 
 .collection {
     position: relative;
@@ -681,11 +728,13 @@ header h1 span {
 
 .collection-title {
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 
     border-bottom:
-        1px solid rgba(255, 35, 22, 0.45);
+        1px solid rgba(255,35,22,0.45);
 
     padding-bottom: 10px;
 
@@ -723,9 +772,9 @@ header h1 span {
 }
 
 
-/* --------------------------------------------------
+/* =====================================================
    FILTERS
--------------------------------------------------- */
+===================================================== */
 
 .controls {
     display: grid;
@@ -745,19 +794,20 @@ input,
 select {
     width: 100%;
 
-    padding: 13px 15px;
+    padding:
+        13px 15px;
 
     color: white;
 
     background:
         linear-gradient(
             180deg,
-            rgba(22, 16, 16, 0.95),
-            rgba(11, 10, 11, 0.95)
+            rgba(22,16,16,0.95),
+            rgba(11,10,11,0.95)
         );
 
     border:
-        1px solid rgba(255, 48, 30, 0.28);
+        1px solid rgba(255,48,30,0.28);
 
     border-radius: 8px;
 
@@ -770,22 +820,26 @@ input::placeholder {
 
 input:focus,
 select:focus {
-    border-color: rgba(255, 183, 65, 0.65);
+    border-color:
+        rgba(255,183,65,0.65);
 
     box-shadow:
-        0 0 15px rgba(255, 50, 30, 0.12);
+        0 0 15px rgba(255,50,30,0.12);
 }
 
 
-/* --------------------------------------------------
+/* =====================================================
    CAR GRID
--------------------------------------------------- */
+===================================================== */
 
 .car-grid {
     display: grid;
 
     grid-template-columns:
-        repeat(auto-fill, minmax(215px, 1fr));
+        repeat(
+            auto-fill,
+            minmax(215px,1fr)
+        );
 
     gap: 14px;
 }
@@ -800,15 +854,15 @@ select:focus {
     background:
         linear-gradient(
             145deg,
-            rgba(25, 19, 18, 0.96),
-            rgba(9, 9, 10, 0.98)
+            rgba(25,19,18,0.96),
+            rgba(9,9,10,0.98)
         );
 
     border:
-        1px solid rgba(255, 42, 27, 0.22);
+        1px solid rgba(255,42,27,0.22);
 
     box-shadow:
-        inset 0 0 20px rgba(255, 30, 20, 0.025);
+        inset 0 0 20px rgba(255,30,20,0.025);
 
     transition:
         transform 0.2s ease,
@@ -817,14 +871,15 @@ select:focus {
 }
 
 .car-card:hover {
-    transform: translateY(-4px);
+    transform:
+        translateY(-4px);
 
     border-color:
-        rgba(255, 180, 60, 0.55);
+        rgba(255,180,60,0.55);
 
     box-shadow:
         0 10px 25px rgba(0,0,0,0.5),
-        0 0 20px rgba(255, 30, 20, 0.08);
+        0 0 20px rgba(255,30,20,0.08);
 }
 
 .car-card h3 {
@@ -867,41 +922,65 @@ select:focus {
 }
 
 
-/* --------------------------------------------------
-   LOADING
--------------------------------------------------- */
+/* =====================================================
+   STATES
+===================================================== */
 
 .loading,
 .error,
 .no-results {
     text-align: center;
 
-    padding: 50px 20px;
+    padding:
+        50px 20px;
 
     color: var(--muted);
 }
 
 
-/* --------------------------------------------------
-   ANIMATION
--------------------------------------------------- */
+/* =====================================================
+   ANIMATIONS
+===================================================== */
 
 @keyframes carAppear {
+
     from {
         opacity: 0;
-        transform: translateY(15px) scale(0.97);
+
+        transform:
+            translateY(15px)
+            scale(0.97);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0) scale(1);
+
+        transform:
+            translateY(0)
+            scale(1);
     }
+
+}
+
+@keyframes imageFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-6px);
+    }
+
 }
 
 
-/* --------------------------------------------------
+/* =====================================================
    MOBILE
--------------------------------------------------- */
+===================================================== */
 
 @media (max-width: 900px) {
 
@@ -918,12 +997,14 @@ select:focus {
     }
 
     .controls {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns:
+            1fr 1fr;
     }
 
     .nav-arrow {
         width: 58px;
         height: 58px;
+
         font-size: 42px;
     }
 
@@ -934,12 +1015,17 @@ select:focus {
     .nav-right {
         right: 4px;
     }
+
 }
 
 @media (max-width: 600px) {
 
     .container {
-        width: min(100% - 20px, 1400px);
+        width:
+            min(
+                100% - 20px,
+                1400px
+            );
     }
 
     header h1 {
@@ -960,21 +1046,14 @@ select:focus {
 
     .stage {
         width: 90vw;
+
         top: 110px;
     }
 
-    .car-visual {
-        width: 300px;
-        height: 125px;
-    }
+    .featured-image {
+        width: 85vw;
 
-    .car-visual::before {
-        width: 145px;
-        left: 77px;
-    }
-
-    .car-visual::after {
-        left: 32px;
+        max-height: 210px;
     }
 
     .featured-info {
@@ -983,12 +1062,15 @@ select:focus {
 
     .featured-name {
         letter-spacing: 2px;
+
         font-size: 25px;
     }
 
     .meta-box {
         min-width: 130px;
-        padding: 9px 12px;
+
+        padding:
+            9px 12px;
     }
 
     .controls {
@@ -996,12 +1078,14 @@ select:focus {
     }
 
     .car-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns:
+            1fr 1fr;
     }
 
     .nav-arrow {
         top: 43%;
     }
+
 }
 
 @media (max-width: 420px) {
@@ -1013,9 +1097,12 @@ select:focus {
     .nav-arrow {
         width: 50px;
         height: 50px;
+
         font-size: 35px;
     }
+
 }
+
 </style>
 </head>
 
@@ -1023,6 +1110,7 @@ select:focus {
 <body>
 
 <div class="container">
+
 
 <!-- =================================================
      HEADER
@@ -1053,7 +1141,8 @@ select:focus {
 
 <section class="hero">
 
-    <!-- Background showroom -->
+
+    <!-- BACKGROUND CAR STASH -->
 
     <div class="car-stash">
 
@@ -1101,7 +1190,7 @@ select:focus {
     </div>
 
 
-    <!-- Left navigation -->
+    <!-- LEFT ARROW -->
 
     <button
         class="nav-arrow nav-left"
@@ -1112,7 +1201,7 @@ select:focus {
     </button>
 
 
-    <!-- Right navigation -->
+    <!-- RIGHT ARROW -->
 
     <button
         class="nav-arrow nav-right"
@@ -1123,13 +1212,14 @@ select:focus {
     </button>
 
 
-    <!-- Central stage -->
+    <!-- CENTRAL STAGE -->
 
     <div class="stage">
 
         <div class="stage-floor"></div>
 
         <div class="stage-ring"></div>
+
 
         <div
             class="featured-car"
@@ -1140,6 +1230,7 @@ select:focus {
             </div>
         </div>
 
+
         <div class="featured-info">
 
             <div
@@ -1148,6 +1239,7 @@ select:focus {
             >
                 Loading...
             </div>
+
 
             <div
                 class="featured-meta"
@@ -1163,9 +1255,10 @@ select:focus {
 
 <!-- =================================================
      COLLECTION
-================================================= -->
+===================================================== -->
 
 <section class="collection">
+
 
     <div class="collection-title">
 
@@ -1173,9 +1266,17 @@ select:focus {
             My Collection
         </h2>
 
+
         <div class="collection-count">
-            <strong id="collectionCount">0</strong>
+
+            <strong
+                id="collectionCount"
+            >
+                0
+            </strong>
+
             CARS
+
         </div>
 
     </div>
@@ -1189,7 +1290,10 @@ select:focus {
             placeholder="Search cars..."
         >
 
-        <select id="manufacturerFilter">
+
+        <select
+            id="manufacturerFilter"
+        >
 
             <option value="">
                 All Manufacturers
@@ -1198,7 +1302,9 @@ select:focus {
         </select>
 
 
-        <select id="brandFilter">
+        <select
+            id="brandFilter"
+        >
 
             <option value="">
                 All Car Brands
@@ -1207,7 +1313,9 @@ select:focus {
         </select>
 
 
-        <select id="colorFilter">
+        <select
+            id="colorFilter"
+        >
 
             <option value="">
                 All Colors
@@ -1222,9 +1330,11 @@ select:focus {
         class="car-grid"
         id="carGrid"
     >
+
         <div class="loading">
             Loading collection...
         </div>
+
     </div>
 
 </section>
@@ -1296,7 +1406,20 @@ async function loadCSV() {
 
         setupNavigation();
 
-        chooseInitialCar();
+
+        /*
+           IMPORTANT:
+
+           We deliberately do NOT use
+           localStorage anymore.
+
+           Every time the site loads,
+           a completely new random car
+           is selected.
+        */
+
+        chooseRandomCar();
+
 
         renderFeaturedCar();
 
@@ -1486,7 +1609,7 @@ function parseCSV(text) {
 
     return rows
         .slice(1)
-        .map(row => {
+        .map((row, rowIndex) => {
 
             const data = {};
 
@@ -1499,6 +1622,30 @@ function parseCSV(text) {
 
                 }
             );
+
+
+            /*
+               IMAGE NUMBER
+
+               We look for an image/serial
+               column if your CSV has one.
+
+               It is NEVER displayed.
+
+               If there isn't one, the
+               row number is used.
+            */
+
+            const possibleImageNumber =
+                data["serial number"] ||
+                data["serial"] ||
+                data["number"] ||
+                data["id"] ||
+                data["image"] ||
+                data["image number"] ||
+                data["photo"] ||
+                data["photo number"] ||
+                String(rowIndex + 1);
 
 
             return {
@@ -1521,7 +1668,23 @@ function parseCSV(text) {
 
                 carBrand:
                     data["car brand"] ||
-                    ""
+                    "",
+
+
+                /*
+                   Internal only.
+                   Never shown on website.
+                */
+
+                imageNumber:
+                    String(
+                        possibleImageNumber
+                    )
+                    .replace(
+                        /\.[^.]+$/,
+                        ""
+                    )
+                    .trim()
 
             };
 
@@ -1534,39 +1697,12 @@ function parseCSV(text) {
 
 
 /* =====================================================
-   FEATURED CAR
+   RANDOM INITIAL CAR
 ===================================================== */
 
-function chooseInitialCar() {
+function chooseRandomCar() {
 
-    const saved =
-        localStorage.getItem(
-            "shadshotCurrentCar"
-        );
-
-
-    if (saved !== null) {
-
-        const savedIndex =
-            parseInt(
-                saved,
-                10
-            );
-
-
-        if (
-            savedIndex >= 0 &&
-            savedIndex < cars.length
-        ) {
-
-            currentCarIndex =
-                savedIndex;
-
-            return;
-
-        }
-
-    }
+    if (!cars.length) return;
 
 
     currentCarIndex =
@@ -1574,19 +1710,6 @@ function chooseInitialCar() {
             Math.random() *
             cars.length
         );
-
-
-    saveCurrentCar();
-
-}
-
-
-function saveCurrentCar() {
-
-    localStorage.setItem(
-        "shadshotCurrentCar",
-        currentCarIndex
-    );
 
 }
 
@@ -1602,6 +1725,7 @@ function nextCar() {
 
     currentCarIndex++;
 
+
     if (
         currentCarIndex >=
         cars.length
@@ -1611,8 +1735,6 @@ function nextCar() {
 
     }
 
-
-    saveCurrentCar();
 
     renderFeaturedCar();
 
@@ -1626,6 +1748,7 @@ function previousCar() {
 
     currentCarIndex--;
 
+
     if (
         currentCarIndex < 0
     ) {
@@ -1635,8 +1758,6 @@ function previousCar() {
 
     }
 
-
-    saveCurrentCar();
 
     renderFeaturedCar();
 
@@ -1681,6 +1802,11 @@ document.addEventListener(
                 ?.toLowerCase();
 
 
+        /*
+           Don't change featured car while
+           typing into search/filter boxes.
+        */
+
         if (
             tag === "input" ||
             tag === "select" ||
@@ -1720,6 +1846,144 @@ document.addEventListener(
 
 
 /* =====================================================
+   IMAGE LOADER
+===================================================== */
+
+function loadCarImage(car, container) {
+
+    const number =
+        String(
+            car.imageNumber
+        )
+        .trim();
+
+
+    /*
+       Turn 1 into 001
+       Turn 12 into 012
+       Keep 001 as 001
+    */
+
+    let paddedNumber =
+        number;
+
+
+    if (
+        /^\d+$/.test(number)
+    ) {
+
+        paddedNumber =
+            number.padStart(
+                3,
+                "0"
+            );
+
+    }
+
+
+    const extensions = [
+        "png",
+        "jpg",
+        "jpeg",
+        "webp"
+    ];
+
+
+    let extensionIndex = 0;
+
+
+    function tryNextImage() {
+
+        if (
+            extensionIndex >=
+            extensions.length
+        ) {
+
+            showMissingPhoto(
+                container
+            );
+
+            return;
+
+        }
+
+
+        const extension =
+            extensions[
+                extensionIndex
+            ];
+
+
+        extensionIndex++;
+
+
+        const image =
+            document.createElement(
+                "img"
+            );
+
+
+        image.className =
+            "featured-image";
+
+
+        image.alt =
+            car.name;
+
+
+        image.src =
+            `images/${paddedNumber}.${extension}`;
+
+
+        image.onload =
+            function() {
+
+                container.innerHTML = "";
+
+                container.appendChild(
+                    image
+                );
+
+            };
+
+
+        image.onerror =
+            function() {
+
+                tryNextImage();
+
+            };
+
+    }
+
+
+    tryNextImage();
+
+}
+
+
+/* =====================================================
+   MISSING PHOTO
+===================================================== */
+
+function showMissingPhoto(
+    container
+) {
+
+    container.innerHTML = `
+
+        <div class="photo-missing">
+
+            PHOTO COMING SOON
+
+        </div>
+
+    `;
+
+}
+
+
+/* =====================================================
    FEATURED CAR DISPLAY
 ===================================================== */
 
@@ -1738,16 +2002,21 @@ function renderFeaturedCar() {
         );
 
 
-    featured.innerHTML = `
+    /*
+       Clear previous car.
+    */
 
-        <div
-            class="car-visual"
-            title="${escapeHTML(
-                car.name
-            )}"
-        ></div>
+    featured.innerHTML = "";
 
-    `;
+
+    /*
+       Load the actual photograph.
+    */
+
+    loadCarImage(
+        car,
+        featured
+    );
 
 
     document.getElementById(
@@ -1779,7 +2048,7 @@ function renderFeaturedCar() {
 
 
     /*
-       Restart animation
+       Restart animation.
     */
 
     featured.style.animation =
@@ -1921,8 +2190,7 @@ function uniqueValues(values) {
 
     return [
         ...new Set(
-            values
-                .filter(Boolean)
+            values.filter(Boolean)
         )
     ].sort();
 
@@ -2104,6 +2372,7 @@ function renderCollection() {
                             car.manufacturer
                             ? `
                                 <span>
+                                    Manufacturer:
                                     <strong>
                                         ${escapeHTML(
                                             car.manufacturer
@@ -2119,9 +2388,12 @@ function renderCollection() {
                             car.carBrand
                             ? `
                                 <span>
-                                    ${escapeHTML(
-                                        car.carBrand
-                                    )}
+                                    Brand:
+                                    <strong>
+                                        ${escapeHTML(
+                                            car.carBrand
+                                        )}
+                                    </strong>
                                 </span>
                               `
                             : ""
@@ -2132,13 +2404,16 @@ function renderCollection() {
                             car.color
                             ? `
                                 <span>
+
                                     <span
                                         class="color-dot"
                                     ></span>
 
+                                    Color:
                                     ${escapeHTML(
                                         car.color
                                     )}
+
                                 </span>
                               `
                             : ""
@@ -2162,22 +2437,27 @@ function renderCollection() {
 function escapeHTML(value) {
 
     return String(value)
+
         .replace(
             /&/g,
             "&amp;"
         )
+
         .replace(
             /</g,
             "&lt;"
         )
+
         .replace(
             />/g,
             "&gt;"
         )
+
         .replace(
             /"/g,
             "&quot;"
         )
+
         .replace(
             /'/g,
             "&#039;"
