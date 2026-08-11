@@ -1,35 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>Shadshot Collection</title>
 
 <style>
 
+/* =====================================================
+   ROOT
+===================================================== */
+
 :root {
+
     --bg: #050506;
+
     --red: #ff2418;
     --red-dark: #7b0804;
+
     --gold: #ffc14a;
     --gold-dark: #8b5d13;
+
     --text: #f7f3e9;
     --muted: #aaa39a;
-    --card: rgba(13, 12, 12, 0.92);
+
 }
+
+
+/* =====================================================
+   GENERAL
+===================================================== */
 
 * {
+
     box-sizing: border-box;
+
     margin: 0;
+
     padding: 0;
+
 }
+
 
 html {
+
     scroll-behavior: smooth;
+
 }
 
+
 body {
+
     min-height: 100vh;
 
     color: var(--text);
@@ -43,30 +71,45 @@ body {
         sans-serif;
 
     background:
+
         radial-gradient(
             ellipse at 50% 20%,
-            rgba(150, 15, 8, 0.24),
+            rgba(150, 15, 8, 0.25),
             transparent 42%
         ),
+
         radial-gradient(
             ellipse at 50% 75%,
-            rgba(255, 36, 24, 0.06),
+            rgba(255, 36, 24, 0.07),
             transparent 40%
         ),
+
         #050506;
 
     overflow-x: hidden;
+
 }
 
-.container {
-    width: min(1400px, calc(100% - 42px));
-    margin: auto;
-}
 
 button,
 input,
 select {
+
     font: inherit;
+
+}
+
+
+.container {
+
+    width:
+        min(
+            1400px,
+            calc(100% - 42px)
+        );
+
+    margin: auto;
+
 }
 
 
@@ -75,26 +118,35 @@ select {
 ===================================================== */
 
 header {
+
     text-align: center;
 
     padding:
-        28px 20px 10px;
+        28px
+        20px
+        8px;
 
     position: relative;
 
-    z-index: 5;
+    z-index: 20;
+
 }
 
+
 .arc-reactor {
-    width: 48px;
-    height: 48px;
+
+    width: 52px;
+    height: 52px;
 
     margin:
-        0 auto 14px;
+        0
+        auto
+        14px;
 
     border-radius: 50%;
 
     background:
+
         radial-gradient(
             circle,
             white 0 9%,
@@ -105,14 +157,21 @@ header {
         );
 
     box-shadow:
+
         0 0 12px #3bdfff,
-        0 0 28px rgba(0, 180, 255, 0.65);
+
+        0 0 28px
+        rgba(0, 180, 255, 0.65);
 
     border:
-        1px solid rgba(255,255,255,0.3);
+        1px solid
+        rgba(255,255,255,0.3);
+
 }
 
+
 .logo-small {
+
     color: var(--gold);
 
     font-size: 13px;
@@ -122,11 +181,18 @@ header {
     letter-spacing: 8px;
 
     margin-bottom: 4px;
+
 }
 
+
 header h1 {
+
     font-size:
-        clamp(42px, 7vw, 82px);
+        clamp(
+            42px,
+            7vw,
+            82px
+        );
 
     line-height: 0.95;
 
@@ -137,19 +203,33 @@ header h1 {
     color: #f7f7f7;
 
     text-shadow:
-        0 0 8px rgba(255,255,255,0.35),
-        0 0 25px rgba(255, 40, 25, 0.28);
+
+        0 0 8px
+        rgba(255,255,255,0.35),
+
+        0 0 25px
+        rgba(255,40,25,0.28);
+
 }
 
+
 header h1 span {
+
     color: #d71912;
 
     text-shadow:
-        0 0 10px rgba(255, 35, 20, 0.7),
-        0 0 30px rgba(255, 35, 20, 0.3);
+
+        0 0 10px
+        rgba(255,35,20,0.7),
+
+        0 0 30px
+        rgba(255,35,20,0.3);
+
 }
 
+
 .subtitle {
+
     margin-top: 14px;
 
     color: #b9b2a9;
@@ -159,24 +239,31 @@ header h1 span {
     letter-spacing: 5px;
 
     text-transform: uppercase;
+
 }
 
 
 /* =====================================================
-   HERO / SHOWROOM
+   HERO
 ===================================================== */
 
 .hero {
+
     position: relative;
 
-    min-height: 600px;
+    min-height: 650px;
 
-    margin-top: 12px;
+    margin-top: 5px;
 
     overflow: hidden;
+
 }
 
+
+/* glowing line */
+
 .hero::before {
+
     content: "";
 
     position: absolute;
@@ -184,11 +271,12 @@ header h1 span {
     left: 12%;
     right: 12%;
 
-    top: 82px;
+    top: 78px;
 
     height: 1px;
 
     background:
+
         linear-gradient(
             90deg,
             transparent,
@@ -199,7 +287,11 @@ header h1 span {
         );
 
     box-shadow:
-        0 0 15px rgba(255, 30, 20, 0.7);
+        0 0 15px
+        rgba(255,30,20,0.7);
+
+    z-index: 5;
+
 }
 
 
@@ -208,180 +300,125 @@ header h1 span {
 ===================================================== */
 
 .car-stash {
+
     position: absolute;
 
     inset:
-        70px 0 80px;
+        65px
+        0
+        45px;
 
     display: flex;
 
-    justify-content: space-between;
+    justify-content:
+        space-between;
 
     pointer-events: none;
 
-    opacity: 0.75;
+    z-index: 1;
+
 }
 
+
 .shelf-column {
-    width: 28%;
+
+    width: 31%;
 
     display: flex;
 
     flex-direction: column;
 
-    justify-content: space-around;
+    justify-content:
+        space-around;
 
-    gap: 18px;
+    gap: 12px;
+
 }
+
 
 .shelf-column.left {
+
     align-items: flex-start;
+
 }
+
 
 .shelf-column.right {
+
     align-items: flex-end;
+
 }
 
+
+/* individual shelf */
+
 .shelf {
+
     width: 100%;
-    height: 105px;
+
+    height: 115px;
 
     position: relative;
 
     border-bottom:
-        2px solid rgba(132, 82, 28, 0.55);
+        2px solid
+        rgba(132,82,28,0.55);
 
     background:
+
         linear-gradient(
             180deg,
-            rgba(255, 155, 45, 0.025),
-            rgba(0,0,0,0.35)
+            rgba(255,155,45,0.025),
+            rgba(0,0,0,0.4)
         );
 
     box-shadow:
-        0 12px 20px rgba(0,0,0,0.5),
-        inset 0 -5px 20px rgba(0,0,0,0.4);
+
+        0 12px 20px
+        rgba(0,0,0,0.5),
+
+        inset 0 -5px 20px
+        rgba(0,0,0,0.4);
+
 }
 
-.mini-car {
-    position: absolute;
 
-    width: 92px;
-    height: 34px;
+/* actual background car */
 
-    bottom: 18px;
-
-    border-radius:
-        25px 35px 8px 8px;
-
-    opacity: 0.42;
-
-    filter: blur(1.2px);
-
-    background:
-        linear-gradient(
-            150deg,
-            #888,
-            #333
-        );
-
-    box-shadow:
-        0 0 15px rgba(255,255,255,0.05);
-}
-
-.mini-car::before {
-    content: "";
+.stash-car {
 
     position: absolute;
 
-    width: 46px;
-    height: 18px;
+    width: 145px;
 
-    top: -11px;
-    left: 20px;
+    height: 95px;
 
-    border-radius:
-        24px 24px 2px 2px;
+    object-fit: contain;
 
-    background:
-        linear-gradient(
-            135deg,
-            #777,
-            #252525
+    object-position: center;
+
+    bottom: 5px;
+
+    opacity: 0.32;
+
+    filter:
+        blur(1px)
+        brightness(0.65)
+        drop-shadow(
+            0 10px 8px
+            rgba(0,0,0,0.7)
         );
+
+    transition:
+        opacity 0.3s ease;
+
 }
 
-.mini-car::after {
-    content: "";
 
-    position: absolute;
+.shelf:nth-child(even) .stash-car {
 
-    width: 11px;
-    height: 11px;
+    transform: scaleX(-1);
 
-    border-radius: 50%;
-
-    left: 13px;
-    bottom: -5px;
-
-    background: #080808;
-
-    box-shadow:
-        56px 0 #080808;
-}
-
-.mini-red {
-    background:
-        linear-gradient(
-            150deg,
-            #b6251d,
-            #3b0907
-        );
-}
-
-.mini-blue {
-    background:
-        linear-gradient(
-            150deg,
-            #3570a7,
-            #101d32
-        );
-}
-
-.mini-yellow {
-    background:
-        linear-gradient(
-            150deg,
-            #d29b2a,
-            #4b3108
-        );
-}
-
-.mini-green {
-    background:
-        linear-gradient(
-            150deg,
-            #477d52,
-            #132418
-        );
-}
-
-.mini-white {
-    background:
-        linear-gradient(
-            150deg,
-            #ddd,
-            #555
-        );
-}
-
-.mini-orange {
-    background:
-        linear-gradient(
-            150deg,
-            #d86921,
-            #4b1c08
-        );
 }
 
 
@@ -390,17 +427,23 @@ header h1 span {
 ===================================================== */
 
 .stage {
+
     position: absolute;
 
     left: 50%;
-    top: 105px;
 
-    transform: translateX(-50%);
+    top: 95px;
+
+    transform:
+        translateX(-50%);
 
     width:
-        min(720px, 58vw);
+        min(
+            900px,
+            72vw
+        );
 
-    height: 390px;
+    height: 460px;
 
     display: flex;
 
@@ -410,66 +453,93 @@ header h1 span {
 
     align-items: center;
 
-    z-index: 3;
+    z-index: 8;
+
 }
 
+
+/* glowing floor */
+
 .stage-floor {
+
     position: absolute;
 
     width: 100%;
-    height: 190px;
 
-    bottom: 5px;
+    height: 230px;
+
+    bottom: 0;
 
     border-radius: 50%;
 
     background:
+
         radial-gradient(
             ellipse,
-            rgba(255, 34, 22, 0.27),
-            rgba(100, 5, 0, 0.16) 42%,
+            rgba(255,34,22,0.30),
+            rgba(100,5,0,0.16) 42%,
             transparent 70%
         );
 
     box-shadow:
-        0 -2px 20px rgba(255, 36, 24, 0.15);
+
+        0 -2px 25px
+        rgba(255,36,24,0.18);
+
 }
 
+
+/* stage ring */
+
 .stage-ring {
+
     position: absolute;
 
-    width: 440px;
-    height: 125px;
+    width: 570px;
 
-    bottom: 45px;
+    height: 155px;
+
+    bottom: 50px;
 
     border-radius: 50%;
 
     border:
-        2px solid rgba(255, 46, 31, 0.7);
+        2px solid
+        rgba(255,46,31,0.7);
 
     box-shadow:
-        0 0 10px rgba(255, 38, 22, 0.8),
-        0 0 45px rgba(255, 38, 22, 0.25),
-        inset 0 0 25px rgba(255, 38, 22, 0.15);
+
+        0 0 10px
+        rgba(255,38,22,0.8),
+
+        0 0 45px
+        rgba(255,38,22,0.25),
+
+        inset 0 0 25px
+        rgba(255,38,22,0.15);
 
     transform:
         perspective(250px)
         rotateX(58deg);
+
 }
 
 
 /* =====================================================
-   REAL CAR IMAGE
+   FEATURED CAR
 ===================================================== */
 
 .featured-car {
+
     position: relative;
 
     width:
-        min(560px, 75vw);
+        min(
+            760px,
+            78vw
+        );
 
-    min-height: 220px;
+    height: 330px;
 
     display: flex;
 
@@ -477,70 +547,49 @@ header h1 span {
 
     justify-content: center;
 
-    z-index: 4;
+    z-index: 10;
 
     animation:
-        carAppear 0.35s ease;
+        carAppear 0.4s ease;
+
 }
 
+
+/* ACTUAL CAR IMAGE */
+
 .featured-image {
-    display: block;
 
     width:
-        min(520px, 72vw);
+        min(
+            700px,
+            78vw
+        );
 
-    max-height: 260px;
+    height: 330px;
 
     object-fit: contain;
 
     object-position: center;
 
+    position: relative;
+
+    z-index: 11;
+
     filter:
+
         drop-shadow(
-            0 30px 22px rgba(0,0,0,0.75)
+            0 30px 22px
+            rgba(0,0,0,0.85)
         )
+
         drop-shadow(
-            0 0 25px rgba(255,50,30,0.18)
+            0 0 25px
+            rgba(255,40,25,0.20)
         );
 
     animation:
-        imageFloat 4s ease-in-out infinite;
-}
+        carImageAppear 0.4s ease;
 
-.photo-missing {
-    width: 350px;
-    height: 180px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    text-align: center;
-
-    border:
-        1px solid rgba(255,50,30,0.3);
-
-    border-radius: 15px;
-
-    background:
-        radial-gradient(
-            ellipse,
-            rgba(255,35,20,0.12),
-            rgba(10,10,10,0.8)
-        );
-
-    color: var(--muted);
-
-    font-size: 13px;
-
-    letter-spacing: 3px;
-
-    text-transform: uppercase;
-
-    box-shadow:
-        0 0 30px rgba(255,30,20,0.08);
 }
 
 
@@ -549,26 +598,37 @@ header h1 span {
 ===================================================== */
 
 .featured-info {
+
     position: absolute;
 
     left: 50%;
 
-    bottom: -15px;
+    bottom: -8px;
 
     transform:
         translateX(-50%);
 
     width:
-        min(700px, 90vw);
+        min(
+            850px,
+            90vw
+        );
 
     text-align: center;
 
-    z-index: 7;
+    z-index: 15;
+
 }
 
+
 .featured-name {
+
     font-size:
-        clamp(25px, 4vw, 45px);
+        clamp(
+            25px,
+            4vw,
+            45px
+        );
 
     font-weight: 800;
 
@@ -577,45 +637,62 @@ header h1 span {
     text-transform: uppercase;
 
     text-shadow:
-        0 0 12px rgba(255,255,255,0.3),
-        0 0 25px rgba(255,40,25,0.2);
+
+        0 0 12px
+        rgba(255,255,255,0.3),
+
+        0 0 25px
+        rgba(255,40,25,0.2);
+
 }
 
+
 .featured-meta {
-    margin-top: 17px;
+
+    margin-top: 14px;
 
     display: flex;
 
     justify-content: center;
 
-    gap: 12px;
+    gap: 10px;
 
     flex-wrap: wrap;
+
 }
 
+
 .meta-box {
-    min-width: 160px;
+
+    min-width: 150px;
 
     padding:
-        12px 20px;
+        10px
+        18px;
 
     border-radius: 10px;
 
     background:
+
         linear-gradient(
             180deg,
-            rgba(55,12,9,0.8),
-            rgba(25,7,5,0.95)
+            rgba(55,12,9,0.86),
+            rgba(25,7,5,0.96)
         );
 
     border:
-        1px solid rgba(255,50,30,0.22);
+        1px solid
+        rgba(255,50,30,0.25);
 
     box-shadow:
-        inset 0 0 18px rgba(255,30,20,0.04);
+        inset 0 0 18px
+        rgba(255,30,20,0.04);
+
 }
 
+
 .meta-label {
+
     display: block;
 
     color: var(--gold);
@@ -627,12 +704,16 @@ header h1 span {
     text-transform: uppercase;
 
     margin-bottom: 4px;
+
 }
 
+
 .meta-value {
+
     font-size: 14px;
 
     font-weight: 700;
+
 }
 
 
@@ -641,37 +722,41 @@ header h1 span {
 ===================================================== */
 
 .nav-arrow {
+
     position: absolute;
 
-    top: 48%;
+    top: 47%;
 
     transform:
         translateY(-50%);
 
-    width: 70px;
-    height: 70px;
+    width: 76px;
+
+    height: 76px;
 
     border-radius: 50%;
 
     border:
-        2px solid rgba(255,50,35,0.85);
+        2px solid
+        rgba(255,50,35,0.9);
 
     background:
+
         radial-gradient(
             circle,
-            rgba(255,45,25,0.14),
-            rgba(0,0,0,0.55)
+            rgba(255,45,25,0.16),
+            rgba(0,0,0,0.65)
         );
 
     color: var(--gold);
 
-    font-size: 52px;
+    font-size: 56px;
 
-    line-height: 58px;
+    line-height: 60px;
 
     cursor: pointer;
 
-    z-index: 10;
+    z-index: 20;
 
     transition:
         transform 0.18s ease,
@@ -679,54 +764,80 @@ header h1 span {
         background 0.18s ease;
 
     box-shadow:
-        0 0 15px rgba(255,36,24,0.35),
-        inset 0 0 18px rgba(255,36,24,0.08);
+
+        0 0 15px
+        rgba(255,36,24,0.4),
+
+        inset 0 0 18px
+        rgba(255,36,24,0.08);
+
 }
 
+
 .nav-arrow:hover {
+
     transform:
         translateY(-50%)
-        scale(1.08);
+        scale(1.10);
 
     background:
+
         radial-gradient(
             circle,
-            rgba(255,45,25,0.3),
+            rgba(255,45,25,0.32),
             rgba(0,0,0,0.5)
         );
 
     box-shadow:
-        0 0 25px rgba(255,36,24,0.7);
+
+        0 0 28px
+        rgba(255,36,24,0.75);
+
 }
+
 
 .nav-left {
-    left: 18px;
+
+    left: 15px;
+
 }
+
 
 .nav-right {
-    right: 18px;
+
+    right: 15px;
+
 }
 
+
 .arrow {
+
     position: relative;
 
-    top: -3px;
+    top: -4px;
+
 }
 
 
 /* =====================================================
-   COLLECTION
+   COLLECTION SECTION
 ===================================================== */
 
 .collection {
+
     position: relative;
 
     margin-top: 20px;
 
-    z-index: 5;
+    padding-bottom: 40px;
+
+    z-index: 10;
+
 }
 
+
 .collection-title {
+
     display: flex;
 
     align-items: center;
@@ -734,22 +845,29 @@ header h1 span {
     justify-content: space-between;
 
     border-bottom:
-        1px solid rgba(255,35,22,0.45);
+        1px solid
+        rgba(255,35,22,0.45);
 
     padding-bottom: 10px;
 
     margin-bottom: 18px;
+
 }
 
+
 .collection-title h2 {
+
     font-size: 24px;
 
     letter-spacing: 2px;
 
     text-transform: uppercase;
+
 }
 
+
 .collection-title h2::before {
+
     content: "◈";
 
     color: var(--gold);
@@ -757,18 +875,25 @@ header h1 span {
     margin-right: 10px;
 
     font-size: 18px;
+
 }
 
+
 .collection-count {
+
     color: #ddd;
 
     font-size: 14px;
+
 }
 
+
 .collection-count strong {
+
     color: var(--red);
 
     font-size: 20px;
+
 }
 
 
@@ -777,6 +902,7 @@ header h1 span {
 ===================================================== */
 
 .controls {
+
     display: grid;
 
     grid-template-columns:
@@ -788,18 +914,23 @@ header h1 span {
     gap: 10px;
 
     margin-bottom: 20px;
+
 }
+
 
 input,
 select {
+
     width: 100%;
 
     padding:
-        13px 15px;
+        13px
+        15px;
 
     color: white;
 
     background:
+
         linear-gradient(
             180deg,
             rgba(22,16,16,0.95),
@@ -807,24 +938,33 @@ select {
         );
 
     border:
-        1px solid rgba(255,48,30,0.28);
+        1px solid
+        rgba(255,48,30,0.28);
 
     border-radius: 8px;
 
     outline: none;
+
 }
 
+
 input::placeholder {
+
     color: #8f8983;
+
 }
+
 
 input:focus,
 select:focus {
+
     border-color:
         rgba(255,183,65,0.65);
 
     box-shadow:
-        0 0 15px rgba(255,50,30,0.12);
+        0 0 15px
+        rgba(255,50,30,0.12);
+
 }
 
 
@@ -833,6 +973,7 @@ select:focus {
 ===================================================== */
 
 .car-grid {
+
     display: grid;
 
     grid-template-columns:
@@ -842,9 +983,12 @@ select:focus {
         );
 
     gap: 14px;
+
 }
 
+
 .car-card {
+
     min-height: 165px;
 
     padding: 17px;
@@ -852,6 +996,7 @@ select:focus {
     border-radius: 10px;
 
     background:
+
         linear-gradient(
             145deg,
             rgba(25,19,18,0.96),
@@ -859,18 +1004,26 @@ select:focus {
         );
 
     border:
-        1px solid rgba(255,42,27,0.22);
+        1px solid
+        rgba(255,42,27,0.22);
 
     box-shadow:
-        inset 0 0 20px rgba(255,30,20,0.025);
+        inset 0 0 20px
+        rgba(255,30,20,0.025);
 
     transition:
+
         transform 0.2s ease,
+
         border-color 0.2s ease,
+
         box-shadow 0.2s ease;
+
 }
 
+
 .car-card:hover {
+
     transform:
         translateY(-4px);
 
@@ -878,11 +1031,18 @@ select:focus {
         rgba(255,180,60,0.55);
 
     box-shadow:
-        0 10px 25px rgba(0,0,0,0.5),
-        0 0 20px rgba(255,30,20,0.08);
+
+        0 10px 25px
+        rgba(0,0,0,0.5),
+
+        0 0 20px
+        rgba(255,30,20,0.08);
+
 }
 
+
 .car-card h3 {
+
     font-size: 16px;
 
     line-height: 1.25;
@@ -890,9 +1050,12 @@ select:focus {
     margin-bottom: 14px;
 
     text-transform: uppercase;
+
 }
 
+
 .car-info {
+
     display: flex;
 
     flex-direction: column;
@@ -902,13 +1065,19 @@ select:focus {
     color: #bdb7b0;
 
     font-size: 12px;
+
 }
+
 
 .car-info strong {
+
     color: #e9e5de;
+
 }
 
+
 .color-dot {
+
     display: inline-block;
 
     width: 8px;
@@ -919,22 +1088,24 @@ select:focus {
     margin-right: 5px;
 
     background: var(--red);
+
 }
 
 
 /* =====================================================
-   STATES
+   LOADING / ERROR
 ===================================================== */
 
 .loading,
 .error,
 .no-results {
+
     text-align: center;
 
-    padding:
-        50px 20px;
+    padding: 50px 20px;
 
     color: var(--muted);
+
 }
 
 
@@ -945,34 +1116,48 @@ select:focus {
 @keyframes carAppear {
 
     from {
+
         opacity: 0;
 
         transform:
             translateY(15px)
             scale(0.97);
+
     }
 
     to {
+
         opacity: 1;
 
         transform:
             translateY(0)
             scale(1);
+
     }
 
 }
 
-@keyframes imageFloat {
 
-    0%,
-    100% {
+@keyframes carImageAppear {
+
+    from {
+
+        opacity: 0;
+
         transform:
-            translateY(0);
+            translateY(18px)
+            scale(0.94);
+
     }
 
-    50% {
+    to {
+
+        opacity: 1;
+
         transform:
-            translateY(-6px);
+            translateY(0)
+            scale(1);
+
     }
 
 }
@@ -985,129 +1170,247 @@ select:focus {
 @media (max-width: 900px) {
 
     .hero {
-        min-height: 600px;
+
+        min-height: 620px;
+
     }
+
 
     .stage {
-        width: 75vw;
+
+        width: 82vw;
+
     }
+
 
     .car-stash {
-        opacity: 0.45;
+
+        opacity: 0.65;
+
     }
+
+
+    .stash-car {
+
+        width: 110px;
+
+        height: 80px;
+
+    }
+
 
     .controls {
+
         grid-template-columns:
             1fr 1fr;
+
     }
+
 
     .nav-arrow {
-        width: 58px;
-        height: 58px;
 
-        font-size: 42px;
-    }
+        width: 62px;
 
-    .nav-left {
-        left: 4px;
-    }
+        height: 62px;
 
-    .nav-right {
-        right: 4px;
+        font-size: 45px;
+
     }
 
 }
+
 
 @media (max-width: 600px) {
 
     .container {
+
         width:
-            min(
-                100% - 20px,
-                1400px
-            );
+            calc(100% - 20px);
+
     }
+
 
     header h1 {
+
         font-size: 42px;
+
     }
+
 
     .subtitle {
+
         letter-spacing: 2px;
+
     }
+
 
     .hero {
-        min-height: 560px;
+
+        min-height: 575px;
+
     }
+
 
     .car-stash {
-        opacity: 0.25;
+
+        opacity: 0.35;
+
     }
+
+
+    .shelf {
+
+        height: 100px;
+
+    }
+
+
+    .stash-car {
+
+        width: 90px;
+
+        height: 70px;
+
+    }
+
 
     .stage {
-        width: 90vw;
 
-        top: 110px;
+        width: 94vw;
+
+        top: 105px;
+
     }
+
+
+    .featured-car {
+
+        width: 92vw;
+
+        height: 310px;
+
+    }
+
 
     .featured-image {
-        width: 85vw;
 
-        max-height: 210px;
+        width: 90vw;
+
+        height: 300px;
+
     }
+
+
+    .stage-ring {
+
+        width: 360px;
+
+        height: 110px;
+
+    }
+
 
     .featured-info {
-        bottom: -5px;
+
+        bottom: -3px;
+
     }
+
 
     .featured-name {
+
         letter-spacing: 2px;
 
-        font-size: 25px;
+        font-size: 23px;
+
     }
+
 
     .meta-box {
-        min-width: 130px;
+
+        min-width: 115px;
 
         padding:
-            9px 12px;
+            8px
+            10px;
+
     }
+
 
     .controls {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+            1fr;
+
     }
+
 
     .car-grid {
+
         grid-template-columns:
             1fr 1fr;
+
     }
 
+
     .nav-arrow {
-        top: 43%;
+
+        width: 55px;
+
+        height: 55px;
+
+        font-size: 40px;
+
+        top: 42%;
+
+    }
+
+
+    .nav-left {
+
+        left: 2px;
+
+    }
+
+
+    .nav-right {
+
+        right: 2px;
+
     }
 
 }
 
+
 @media (max-width: 420px) {
 
     .car-grid {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+            1fr;
+
     }
 
-    .nav-arrow {
-        width: 50px;
-        height: 50px;
 
-        font-size: 35px;
+    .nav-arrow {
+
+        width: 48px;
+
+        height: 48px;
+
+        font-size: 34px;
+
     }
 
 }
 
 </style>
+
 </head>
 
 
 <body>
+
 
 <div class="container">
 
@@ -1142,26 +1445,47 @@ select:focus {
 <section class="hero">
 
 
-    <!-- BACKGROUND CAR STASH -->
+    <!-- ================================================
+         BACKGROUND STASH
+    ================================================= -->
 
-    <div class="car-stash">
+    <div
+        class="car-stash"
+        id="carStash"
+    >
 
         <div class="shelf-column left">
 
             <div class="shelf">
-                <div class="mini-car mini-green"></div>
+                <img
+                    class="stash-car"
+                    id="stash1"
+                    alt=""
+                >
             </div>
 
             <div class="shelf">
-                <div class="mini-car mini-blue"></div>
+                <img
+                    class="stash-car"
+                    id="stash2"
+                    alt=""
+                >
             </div>
 
             <div class="shelf">
-                <div class="mini-car mini-red"></div>
+                <img
+                    class="stash-car"
+                    id="stash3"
+                    alt=""
+                >
             </div>
 
             <div class="shelf">
-                <div class="mini-car mini-yellow"></div>
+                <img
+                    class="stash-car"
+                    id="stash4"
+                    alt=""
+                >
             </div>
 
         </div>
@@ -1170,19 +1494,35 @@ select:focus {
         <div class="shelf-column right">
 
             <div class="shelf">
-                <div class="mini-car mini-orange"></div>
+                <img
+                    class="stash-car"
+                    id="stash5"
+                    alt=""
+                >
             </div>
 
             <div class="shelf">
-                <div class="mini-car mini-white"></div>
+                <img
+                    class="stash-car"
+                    id="stash6"
+                    alt=""
+                >
             </div>
 
             <div class="shelf">
-                <div class="mini-car mini-red"></div>
+                <img
+                    class="stash-car"
+                    id="stash7"
+                    alt=""
+                >
             </div>
 
             <div class="shelf">
-                <div class="mini-car mini-blue"></div>
+                <img
+                    class="stash-car"
+                    id="stash8"
+                    alt=""
+                >
             </div>
 
         </div>
@@ -1190,31 +1530,46 @@ select:focus {
     </div>
 
 
-    <!-- LEFT ARROW -->
+    <!-- ================================================
+         LEFT ARROW
+    ================================================= -->
 
     <button
         class="nav-arrow nav-left"
         id="previousCar"
         aria-label="Previous car"
     >
-        <span class="arrow">‹</span>
+
+        <span class="arrow">
+            ‹
+        </span>
+
     </button>
 
 
-    <!-- RIGHT ARROW -->
+    <!-- ================================================
+         RIGHT ARROW
+    ================================================= -->
 
     <button
         class="nav-arrow nav-right"
         id="nextCar"
         aria-label="Next car"
     >
-        <span class="arrow">›</span>
+
+        <span class="arrow">
+            ›
+        </span>
+
     </button>
 
 
-    <!-- CENTRAL STAGE -->
+    <!-- ================================================
+         CENTRAL STAGE
+    ================================================= -->
 
     <div class="stage">
+
 
         <div class="stage-floor"></div>
 
@@ -1225,13 +1580,16 @@ select:focus {
             class="featured-car"
             id="featuredCar"
         >
+
             <div class="loading">
                 Loading...
             </div>
+
         </div>
 
 
         <div class="featured-info">
+
 
             <div
                 class="featured-name"
@@ -1246,7 +1604,9 @@ select:focus {
                 id="featuredMeta"
             ></div>
 
+
         </div>
+
 
     </div>
 
@@ -1255,7 +1615,7 @@ select:focus {
 
 <!-- =================================================
      COLLECTION
-===================================================== -->
+================================================= -->
 
 <section class="collection">
 
@@ -1283,6 +1643,7 @@ select:focus {
 
 
     <div class="controls">
+
 
         <input
             id="search"
@@ -1323,6 +1684,7 @@ select:focus {
 
         </select>
 
+
     </div>
 
 
@@ -1337,12 +1699,15 @@ select:focus {
 
     </div>
 
+
 </section>
+
 
 </div>
 
 
 <script>
+
 
 /* =====================================================
    VARIABLES
@@ -1356,12 +1721,97 @@ let currentCarIndex = 0;
 
 
 /* =====================================================
+   IMAGE EXTENSIONS
+===================================================== */
+
+const imageExtensions = [
+
+    ".png",
+    ".jpg",
+    ".jpeg",
+    ".webp"
+
+];
+
+
+/* =====================================================
+   GET IMAGE PATH
+===================================================== */
+
+function getImageNumber(car) {
+
+    return String(
+        car.serialNumber
+    )
+        .trim()
+        .padStart(3, "0");
+
+}
+
+
+/* =====================================================
+   SET IMAGE WITH AUTOMATIC EXTENSION
+===================================================== */
+
+function setCarImage(
+    imageElement,
+    serialNumber
+) {
+
+    const number =
+        String(serialNumber)
+            .trim()
+            .padStart(3, "0");
+
+
+    let extensionIndex = 0;
+
+
+    function tryNextImage() {
+
+        if (
+            extensionIndex >=
+            imageExtensions.length
+        ) {
+
+            imageElement.style.display =
+                "none";
+
+            return;
+
+        }
+
+
+        imageElement.src =
+            "images/" +
+            number +
+            imageExtensions[
+                extensionIndex
+            ];
+
+
+        extensionIndex++;
+
+    }
+
+
+    imageElement.onerror =
+        tryNextImage;
+
+
+    tryNextImage();
+
+}
+
+
+/* =====================================================
    LOAD CSV
 ===================================================== */
 
 async function loadCSV() {
 
     try {
+
 
         const response =
             await fetch(
@@ -1408,14 +1858,8 @@ async function loadCSV() {
 
 
         /*
-           IMPORTANT:
-
-           We deliberately do NOT use
-           localStorage anymore.
-
-           Every time the site loads,
-           a completely new random car
-           is selected.
+           RANDOM CAR EVERY TIME
+           THE WEBSITE IS OPENED
         */
 
         chooseRandomCar();
@@ -1423,10 +1867,18 @@ async function loadCSV() {
 
         renderFeaturedCar();
 
+
+        renderStash();
+
+
         renderCollection();
 
 
-    } catch (error) {
+    }
+
+
+    catch (error) {
+
 
         console.error(error);
 
@@ -1446,6 +1898,12 @@ async function loadCSV() {
                 Could not load
                 <strong>Collection.csv</strong>.
 
+                <br><br>
+
+                Make sure the CSV is in
+                the same folder as
+                index.html.
+
             </div>
 
         `;
@@ -1460,6 +1918,7 @@ async function loadCSV() {
 ===================================================== */
 
 function parseCSV(text) {
+
 
     const rows = [];
 
@@ -1476,8 +1935,10 @@ function parseCSV(text) {
         i++
     ) {
 
+
         const char =
             text[i];
+
 
         const next =
             text[i + 1];
@@ -1495,6 +1956,7 @@ function parseCSV(text) {
 
         }
 
+
         else if (
             char === '"'
         ) {
@@ -1503,6 +1965,7 @@ function parseCSV(text) {
                 !insideQuotes;
 
         }
+
 
         else if (
             char === "," &&
@@ -1517,11 +1980,15 @@ function parseCSV(text) {
 
         }
 
+
         else if (
-            (char === "\n" ||
-             char === "\r") &&
+            (
+                char === "\n" ||
+                char === "\r"
+            ) &&
             !insideQuotes
         ) {
+
 
             if (
                 char === "\r" &&
@@ -1542,7 +2009,8 @@ function parseCSV(text) {
 
             if (
                 row.some(
-                    cell => cell !== ""
+                    cell =>
+                        cell !== ""
                 )
             ) {
 
@@ -1554,6 +2022,7 @@ function parseCSV(text) {
             row = [];
 
         }
+
 
         else {
 
@@ -1569,6 +2038,7 @@ function parseCSV(text) {
         row.length > 0
     ) {
 
+
         row.push(
             value.trim()
         );
@@ -1576,7 +2046,8 @@ function parseCSV(text) {
 
         if (
             row.some(
-                cell => cell !== ""
+                cell =>
+                    cell !== ""
             )
         ) {
 
@@ -1587,7 +2058,9 @@ function parseCSV(text) {
     }
 
 
-    if (rows.length < 2) {
+    if (
+        rows.length < 2
+    ) {
 
         return [];
 
@@ -1609,100 +2082,91 @@ function parseCSV(text) {
 
     return rows
         .slice(1)
-        .map((row, rowIndex) => {
-
-            const data = {};
-
-
-            headers.forEach(
-                (header, index) => {
-
-                    data[header] =
-                        row[index] || "";
-
-                }
-            );
+        .map(
+            (row, rowIndex) => {
 
 
-            /*
-               IMAGE NUMBER
-
-               We look for an image/serial
-               column if your CSV has one.
-
-               It is NEVER displayed.
-
-               If there isn't one, the
-               row number is used.
-            */
-
-            const possibleImageNumber =
-                data["serial number"] ||
-                data["serial"] ||
-                data["number"] ||
-                data["id"] ||
-                data["image"] ||
-                data["image number"] ||
-                data["photo"] ||
-                data["photo number"] ||
-                String(rowIndex + 1);
+                const data = {};
 
 
-            return {
+                headers.forEach(
+                    (
+                        header,
+                        index
+                    ) => {
 
-                name:
-                    data["car name"] ||
-                    data["cars"] ||
-                    "",
+                        data[header] =
+                            row[index] ||
+                            "";
 
-
-                manufacturer:
-                    data["manufacturer"] ||
-                    "",
-
-
-                color:
-                    data["color"] ||
-                    "",
-
-
-                carBrand:
-                    data["car brand"] ||
-                    "",
+                    }
+                );
 
 
                 /*
-                   Internal only.
-                   Never shown on website.
+                   Serial number is used ONLY
+                   to find the picture.
+
+                   It is NEVER displayed.
                 */
 
-                imageNumber:
+                const serial =
+                    data["sr no"] ||
+                    data["sr. no"] ||
+                    data["sr. no."] ||
+                    data["serial no"] ||
+                    data["serial number"] ||
                     String(
-                        possibleImageNumber
-                    )
-                    .replace(
-                        /\.[^.]+$/,
+                        rowIndex + 1
+                    );
+
+
+                return {
+
+                    serialNumber:
+                        serial,
+
+
+                    name:
+                        data["cars"] ||
+                        data["car name"] ||
+                        data["name"] ||
+                        "",
+
+
+                    manufacturer:
+                        data["manufacturer"] ||
+                        "",
+
+
+                    color:
+                        data["color"] ||
+                        "",
+
+
+                    carBrand:
+                        data["car brand"] ||
                         ""
-                    )
-                    .trim()
 
-            };
+                };
 
-        })
+            }
+        )
+
+
         .filter(
-            car => car.name !== ""
+            car =>
+                car.name !== ""
         );
 
 }
 
 
 /* =====================================================
-   RANDOM INITIAL CAR
+   RANDOM STARTING CAR
 ===================================================== */
 
 function chooseRandomCar() {
-
-    if (!cars.length) return;
 
 
     currentCarIndex =
@@ -1720,7 +2184,9 @@ function chooseRandomCar() {
 
 function nextCar() {
 
-    if (!cars.length) return;
+
+    if (!cars.length)
+        return;
 
 
     currentCarIndex++;
@@ -1738,12 +2204,16 @@ function nextCar() {
 
     renderFeaturedCar();
 
+    renderStash();
+
 }
 
 
 function previousCar() {
 
-    if (!cars.length) return;
+
+    if (!cars.length)
+        return;
 
 
     currentCarIndex--;
@@ -1761,10 +2231,17 @@ function previousCar() {
 
     renderFeaturedCar();
 
+    renderStash();
+
 }
 
 
+/* =====================================================
+   SETUP NAVIGATION
+===================================================== */
+
 function setupNavigation() {
+
 
     document
         .getElementById(
@@ -1796,6 +2273,7 @@ document.addEventListener(
     "keydown",
     function(event) {
 
+
         const tag =
             document.activeElement
                 ?.tagName
@@ -1803,8 +2281,8 @@ document.addEventListener(
 
 
         /*
-           Don't change featured car while
-           typing into search/filter boxes.
+           Don't change cars while
+           typing in search/filter boxes.
         */
 
         if (
@@ -1830,7 +2308,7 @@ document.addEventListener(
         }
 
 
-        if (
+        else if (
             event.key ===
             "ArrowLeft"
         ) {
@@ -1846,154 +2324,18 @@ document.addEventListener(
 
 
 /* =====================================================
-   IMAGE LOADER
-===================================================== */
-
-function loadCarImage(car, container) {
-
-    const number =
-        String(
-            car.imageNumber
-        )
-        .trim();
-
-
-    /*
-       Turn 1 into 001
-       Turn 12 into 012
-       Keep 001 as 001
-    */
-
-    let paddedNumber =
-        number;
-
-
-    if (
-        /^\d+$/.test(number)
-    ) {
-
-        paddedNumber =
-            number.padStart(
-                3,
-                "0"
-            );
-
-    }
-
-
-    const extensions = [
-        "png",
-        "jpg",
-        "jpeg",
-        "webp"
-    ];
-
-
-    let extensionIndex = 0;
-
-
-    function tryNextImage() {
-
-        if (
-            extensionIndex >=
-            extensions.length
-        ) {
-
-            showMissingPhoto(
-                container
-            );
-
-            return;
-
-        }
-
-
-        const extension =
-            extensions[
-                extensionIndex
-            ];
-
-
-        extensionIndex++;
-
-
-        const image =
-            document.createElement(
-                "img"
-            );
-
-
-        image.className =
-            "featured-image";
-
-
-        image.alt =
-            car.name;
-
-
-        image.src =
-            `images/${paddedNumber}.${extension}`;
-
-
-        image.onload =
-            function() {
-
-                container.innerHTML = "";
-
-                container.appendChild(
-                    image
-                );
-
-            };
-
-
-        image.onerror =
-            function() {
-
-                tryNextImage();
-
-            };
-
-    }
-
-
-    tryNextImage();
-
-}
-
-
-/* =====================================================
-   MISSING PHOTO
-===================================================== */
-
-function showMissingPhoto(
-    container
-) {
-
-    container.innerHTML = `
-
-        <div class="photo-missing">
-
-            PHOTO COMING SOON
-
-        </div>
-
-    `;
-
-}
-
-
-/* =====================================================
-   FEATURED CAR DISPLAY
+   FEATURED CAR
 ===================================================== */
 
 function renderFeaturedCar() {
+
 
     const car =
         cars[currentCarIndex];
 
 
-    if (!car) return;
+    if (!car)
+        return;
 
 
     const featured =
@@ -2002,20 +2344,28 @@ function renderFeaturedCar() {
         );
 
 
-    /*
-       Clear previous car.
-    */
+    featured.innerHTML = `
 
-    featured.innerHTML = "";
+        <img
+            class="featured-image"
+            id="featuredImage"
+            alt="${escapeHTML(
+                car.name
+            )}"
+        >
+
+    `;
 
 
-    /*
-       Load the actual photograph.
-    */
+    const image =
+        document.getElementById(
+            "featuredImage"
+        );
 
-    loadCarImage(
-        car,
-        featured
+
+    setCarImage(
+        image,
+        car.serialNumber
     );
 
 
@@ -2029,15 +2379,18 @@ function renderFeaturedCar() {
         "featuredMeta"
     ).innerHTML = `
 
+
         ${createMeta(
             "MANUFACTURER",
             car.manufacturer
         )}
 
+
         ${createMeta(
             "BRAND",
             car.carBrand
         )}
+
 
         ${createMeta(
             "COLOR",
@@ -2048,7 +2401,7 @@ function renderFeaturedCar() {
 
 
     /*
-       Restart animation.
+       Restart animation
     */
 
     featured.style.animation =
@@ -2059,7 +2412,7 @@ function renderFeaturedCar() {
 
 
     featured.style.animation =
-        "carAppear 0.35s ease";
+        "carAppear 0.4s ease";
 
 }
 
@@ -2073,7 +2426,9 @@ function createMeta(
     value
 ) {
 
-    if (!value) return "";
+
+    if (!value)
+        return "";
 
 
     return `
@@ -2081,11 +2436,18 @@ function createMeta(
         <div class="meta-box">
 
             <span class="meta-label">
+
                 ${label}
+
             </span>
 
+
             <span class="meta-value">
-                ${escapeHTML(value)}
+
+                ${escapeHTML(
+                    value
+                )}
+
             </span>
 
         </div>
@@ -2096,10 +2458,110 @@ function createMeta(
 
 
 /* =====================================================
+   BACKGROUND STASH
+===================================================== */
+
+function renderStash() {
+
+
+    if (!cars.length)
+        return;
+
+
+    /*
+       These are the cars shown behind
+       the featured car.
+
+       We deliberately skip the currently
+       selected car.
+    */
+
+
+    const availableCars =
+        cars.filter(
+            (
+                car,
+                index
+            ) =>
+                index !==
+                currentCarIndex
+        );
+
+
+    /*
+       Shuffle the available cars.
+    */
+
+    const shuffled =
+        [...availableCars]
+            .sort(
+                () =>
+                    Math.random() -
+                    0.5
+            );
+
+
+    const stashCars =
+        shuffled.slice(
+            0,
+            8
+        );
+
+
+    for (
+        let i = 1;
+        i <= 8;
+        i++
+    ) {
+
+
+        const element =
+            document.getElementById(
+                "stash" + i
+            );
+
+
+        const car =
+            stashCars[i - 1];
+
+
+        if (
+            !car ||
+            !element
+        ) {
+
+            if (element) {
+
+                element.style.display =
+                    "none";
+
+            }
+
+            continue;
+
+        }
+
+
+        element.style.display =
+            "block";
+
+
+        setCarImage(
+            element,
+            car.serialNumber
+        );
+
+    }
+
+}
+
+
+/* =====================================================
    FILTERS
 ===================================================== */
 
 function setupFilters() {
+
 
     const manufacturers =
         uniqueValues(
@@ -2147,7 +2609,9 @@ function setupFilters() {
 
 
     document
-        .getElementById("search")
+        .getElementById(
+            "search"
+        )
         .addEventListener(
             "input",
             applyFilters
@@ -2186,28 +2650,48 @@ function setupFilters() {
 }
 
 
-function uniqueValues(values) {
+/* =====================================================
+   UNIQUE VALUES
+===================================================== */
+
+function uniqueValues(
+    values
+) {
+
 
     return [
+
         ...new Set(
-            values.filter(Boolean)
+
+            values
+                .filter(Boolean)
+
         )
+
     ].sort();
 
 }
 
+
+/* =====================================================
+   FILL SELECT
+===================================================== */
 
 function fillSelect(
     id,
     values
 ) {
 
+
     const select =
-        document.getElementById(id);
+        document.getElementById(
+            id
+        );
 
 
     values.forEach(
         value => {
+
 
             const option =
                 document.createElement(
@@ -2234,10 +2718,11 @@ function fillSelect(
 
 
 /* =====================================================
-   FILTER COLLECTION
+   APPLY FILTERS
 ===================================================== */
 
 function applyFilters() {
+
 
     const search =
         document.getElementById(
@@ -2270,42 +2755,58 @@ function applyFilters() {
         cars.filter(
             car => {
 
+
                 const searchMatch =
+
                     !search ||
+
                     car.name
                         .toLowerCase()
                         .includes(search) ||
+
                     car.manufacturer
                         .toLowerCase()
                         .includes(search) ||
+
                     car.carBrand
                         .toLowerCase()
                         .includes(search);
 
 
                 const manufacturerMatch =
+
                     !manufacturer ||
+
                     car.manufacturer ===
-                        manufacturer;
+                    manufacturer;
 
 
                 const brandMatch =
+
                     !brand ||
+
                     car.carBrand ===
-                        brand;
+                    brand;
 
 
                 const colorMatch =
+
                     !color ||
+
                     car.color ===
-                        color;
+                    color;
 
 
                 return (
+
                     searchMatch &&
+
                     manufacturerMatch &&
+
                     brandMatch &&
+
                     colorMatch
+
                 );
 
             }
@@ -2323,6 +2824,7 @@ function applyFilters() {
 
 function renderCollection() {
 
+
     const grid =
         document.getElementById(
             "carGrid"
@@ -2335,7 +2837,10 @@ function renderCollection() {
         displayedCars.length;
 
 
-    if (!displayedCars.length) {
+    if (
+        !displayedCars.length
+    ) {
+
 
         grid.innerHTML = `
 
@@ -2347,77 +2852,100 @@ function renderCollection() {
 
         `;
 
+
         return;
 
     }
 
 
     grid.innerHTML =
+
         displayedCars
+
             .map(
                 car => `
 
                 <div class="car-card">
 
                     <h3>
+
                         ${escapeHTML(
                             car.name
                         )}
+
                     </h3>
 
 
                     <div class="car-info">
 
+
                         ${
                             car.manufacturer
+
                             ? `
+
                                 <span>
-                                    Manufacturer:
+
                                     <strong>
+
                                         ${escapeHTML(
                                             car.manufacturer
                                         )}
+
                                     </strong>
+
                                 </span>
+
                               `
+
                             : ""
+
                         }
 
 
                         ${
                             car.carBrand
+
                             ? `
+
                                 <span>
-                                    Brand:
-                                    <strong>
-                                        ${escapeHTML(
-                                            car.carBrand
-                                        )}
-                                    </strong>
+
+                                    ${escapeHTML(
+                                        car.carBrand
+                                    )}
+
                                 </span>
+
                               `
+
                             : ""
+
                         }
 
 
                         ${
                             car.color
+
                             ? `
+
                                 <span>
 
                                     <span
                                         class="color-dot"
                                     ></span>
 
-                                    Color:
                                     ${escapeHTML(
                                         car.color
                                     )}
 
                                 </span>
+
                               `
+
                             : ""
+
                         }
+
 
                     </div>
 
@@ -2425,6 +2953,7 @@ function renderCollection() {
 
             `
             )
+
             .join("");
 
 }
@@ -2434,7 +2963,10 @@ function renderCollection() {
    ESCAPE HTML
 ===================================================== */
 
-function escapeHTML(value) {
+function escapeHTML(
+    value
+) {
+
 
     return String(value)
 
@@ -2472,7 +3004,10 @@ function escapeHTML(value) {
 
 loadCSV();
 
+
 </script>
 
+
 </body>
+
 </html>
